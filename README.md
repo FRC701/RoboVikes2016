@@ -31,5 +31,16 @@ CAN:
 	
 
 Others:
-	use REDTAP for connecting to robotRio via mDNS (until silverlight works for chrome or windows 10 I.E, BLUETAP might work untested.
-	use BLACKTAP for best wireless connectivity.
+	use REDTAPE for connecting to robotRio via mDNS (until silverlight works for chrome or windows 10 I.E, BLUETAP might work untested.
+	use BLACKTAPE for best wireless connectivity.
+
+Questions:
+	
+	How to create this?
+	
+	
+Contributors:
+	
+	username for github
+	
+	
