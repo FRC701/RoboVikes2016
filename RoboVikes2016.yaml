@@ -267,7 +267,7 @@ Children:
           name: Command
           type: Command
           validators: &id013 [TypeDropdownSelected]
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id014 [whileHeld, whenPressed, whenReleased]
           default: whileHeld
@@ -296,7 +296,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -325,7 +325,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -354,7 +354,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -383,7 +383,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -412,7 +412,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -441,7 +441,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -470,7 +470,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -499,7 +499,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -528,7 +528,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -567,7 +567,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -596,7 +596,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -625,7 +625,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -654,7 +654,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -683,7 +683,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -712,7 +712,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -741,7 +741,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -770,7 +770,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -799,7 +799,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -828,7 +828,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: None
+          value: Autonomous Command
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -873,7 +873,7 @@ Children:
   Name: Commands
 Properties:
   Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Vanden\workspace',
-    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Users\Diego\workspace'}
+    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Workspace20151119\RoboVikes2016'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -892,7 +892,7 @@ Properties:
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
   Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Vanden\',
-    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Diego\'}
+    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Vanden'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
 Base: Robot
