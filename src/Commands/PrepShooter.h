@@ -1,10 +1,10 @@
 #ifndef PrepShooter_H
 #define PrepShooter_H
 
-#include "../RobotMap.h"
-#include "WPILib.h"
+#include "Commands/Subsystem.h"
+#include "../Robot.h"
 
-class PrepShooter: public RobotMap
+class PrepShooter: public Command
 {
 public:
 	PrepShooter();

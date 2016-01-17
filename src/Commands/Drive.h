@@ -1,10 +1,10 @@
 #ifndef Drive_H
 #define Drive_H
 
-#include "../RobotMap.h"
-#include "WPILib.h"
+#include "Commands/Subsystem.h"
+#include "../Robot.h"
 
-class Drive: public RobotMap
+class Drive: public Command
 {
 public:
 	Drive();

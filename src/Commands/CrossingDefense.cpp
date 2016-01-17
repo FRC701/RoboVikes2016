@@ -1,6 +1,6 @@
 #include "CrossingDefense.h"
 #include "Drive.h"
-
+#include "AutonomousCommand.h"
 
 CrossingDefense::CrossingDefense()
 {
@@ -8,7 +8,8 @@ CrossingDefense::CrossingDefense()
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.
-	//AddSequential(new Drive());
+	AddSequential(new Drive());
+	AddSequential(new AutonomousCommand());
 	// To run multiple commands at the same time,
 	// use AddParallel()
 	// e.g. AddParallel(new Command1());

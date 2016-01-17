@@ -1,6 +1,13 @@
 #include "Drive.h"
 
 
+Drive::Drive(){
+	Drive::encoderValueGoal = 0;
+	Drive::encoderValue = 0;
+	Drive::direction = 1;
+	Drive::speed = 0;
+}
+
 Drive::Drive(int encoder, int goal, double speedinput)
 {
 	speed = 1.0;
