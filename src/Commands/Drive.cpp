@@ -2,16 +2,20 @@
 
 
 Drive::Drive(){
-	Drive::encoderValueGoal = 0;
-	Drive::encoderValue = 0;
+	Drive::encoderValueGoal = 1000;
 	Drive::direction = 1;
 	Drive::speed = 0;
 }
 
-Drive::Drive(int encoder, int goal, double speedinput)
+Drive::Drive(int goal)
 {
 	speed = 1.0;
-	encoderValue = encoder;
+	direction = 1;
+	encoderValueGoal = goal;
+}
+
+Drive::Drive(int goal, double speedinput)
+{
 	encoderValueGoal = goal;
 	speed= speedinput;
 	direction = 1;
@@ -22,7 +26,7 @@ Drive::Drive(int encoder, int goal, double speedinput)
 // Called just before this Command runs the first time
 void Drive::Initialize()
 {
-	if (encoderValueGoal-encoderValue < encoderValue)
+	if (encoderValueGoal-RobotMap::chassisleftMotor1->GetEncVel() < RobotMap::chassisleftMotor1->GetEncVel())
 		direction = -1;
 
 
@@ -43,7 +47,7 @@ void Drive::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool Drive::IsFinished()
 {
-	return encoderValue >= encoderValueGoal;
+	return RobotMap::chassisleftMotor1->GetEncVel() >= encoderValueGoal;
 }
 
 // Called once after isFinished returns true

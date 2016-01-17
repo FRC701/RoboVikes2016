@@ -8,17 +8,16 @@ class Drive: public Command
 {
 public:
 	Drive();
-	Drive(int encoderVal, int encoderValGoal);
-	Drive(int encoderVal, int encoderValGoal, double speedinput);
+	Drive(int encoderValGoal);
+	Drive(int encoderValGoal, double speedinput);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
 private:
-	int encoderValue;
 	int encoderValueGoal;
-	int speed;
+	double speed;
 	int direction;
 };
 
