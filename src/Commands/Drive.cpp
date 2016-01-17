@@ -1,21 +1,23 @@
 #include "Drive.h"
 
+Drive::Drive(): Command(){
+	speed = 1.0;
+	direction = 1;
+	encoderValueGoal = 1000;
+}
 
-
-Drive::Drive(int goal)
+Drive::Drive(int goal): Command()
 {
 	speed = 1.0;
 	direction = 1;
-	enGoal = goal;
-	encoderValueGoal = RobotMap::chassisleftMotor1->GetEncPosition() + enGoal;
+	encoderValueGoal = RobotMap::chassisleftMotor1->GetEncPosition() + goal;
 }
 
-Drive::Drive(int goal, double speedinput)
+Drive::Drive(int goal, double speedinput): Command()
 {
-	enGoal = goal;
 	speed= speedinput;
 	direction = 1;
-	encoderValueGoal = RobotMap::chassisleftMotor1->GetEncPosition() + enGoal;
+	encoderValueGoal = RobotMap::chassisleftMotor1->GetEncPosition() + goal;
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 }
