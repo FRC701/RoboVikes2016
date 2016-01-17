@@ -72,13 +72,13 @@ void RobotMap::init() {
     intakeintakeMotor4.reset(new CANTalon(10));
     lw->AddActuator("Intake", "intakeMotor4", intakeintakeMotor4);
     
-    shootershooterMotor1.reset(new CANTalon(0));
+    shootershooterMotor1.reset(new CANTalon(11));
     lw->AddActuator("Shooter", "shooterMotor1", shootershooterMotor1);
     
-    shootershooterMotor2.reset(new CANTalon(11));
+    shootershooterMotor2.reset(new CANTalon(12));
     lw->AddActuator("Shooter", "shooterMotor2", shootershooterMotor2);
     
-    shooterrollerMotor.reset(new CANTalon(12));
+    shooterrollerMotor.reset(new CANTalon(13));
     lw->AddActuator("Shooter", "rollerMotor", shooterrollerMotor);
     
 
