@@ -7,6 +7,7 @@
 class Drive: public Command
 {
 public:
+	Drive();
 	Drive(int encoderValGoal);
 	Drive(int encoderValGoal, double speedinput);
 	void Initialize();
@@ -16,7 +17,6 @@ public:
 	void Interrupted();
 private:
 	int encoderValueGoal;
-	int enGoal; // this is used to try ensure that we are moving from the current value
 	double speed;
 	int direction;
 };
