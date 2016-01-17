@@ -65,7 +65,7 @@ OI::OI() {
     dButtonX.reset(new JoystickButton(driver.get(), 3));
     dButtonX->WhileHeld(new RollerOn());
     dButtonB.reset(new JoystickButton(driver.get(), 2));
-    dButtonB->WhileHeld(new AutonomousCommand());
+    dButtonB->WhileHeld(new ShooterControl());
     dButtonA.reset(new JoystickButton(driver.get(), 1));
     dButtonA->WhileHeld(new AutonomousCommand());
 
