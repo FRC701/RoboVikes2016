@@ -17,6 +17,7 @@
 #include "Commands/RollerOff.h"
 #include "Commands/RollerOn.h"
 #include "Commands/RollerReverse.h"
+#include "Commands/ShifterToggle.h"
 #include "Commands/ShooterControl.h"
 #include "Commands/ShooterIntake.h"
 #include "Commands/ShooterReverse.h"
@@ -80,6 +81,7 @@ OI::OI() {
 
     // SmartDashboard Buttons
     SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());
+    SmartDashboard::PutData("ShifterToggle", new ShifterToggle());
     SmartDashboard::PutData("ShooterControl: shooterOff", new ShooterControl(0.0));
     SmartDashboard::PutData("ShooterControl: shooter50P", new ShooterControl(0.5));
     SmartDashboard::PutData("ShooterControl: shooter55P", new ShooterControl(0.55));
