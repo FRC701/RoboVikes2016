@@ -61,7 +61,7 @@ OI::OI() {
     dButtonR3.reset(new JoystickButton(driver.get(), 10));
     dButtonR3->WhileHeld(new AutonomousCommand());
     dButtonL3.reset(new JoystickButton(driver.get(), 9));
-    dButtonL3->WhileHeld(new AutonomousCommand());
+    dButtonL3->WhenPressed(new ShifterToggle());
     dButtonStart.reset(new JoystickButton(driver.get(), 8));
     dButtonStart->WhileHeld(new AutonomousCommand());
     dButtonBack.reset(new JoystickButton(driver.get(), 7));
