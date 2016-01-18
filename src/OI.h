@@ -20,7 +20,6 @@ private:
 	std::shared_ptr<Joystick> coDriver;
 	std::shared_ptr<JoystickButton> coButtonR3;
 	std::shared_ptr<JoystickButton> coButtonL3;
-	std::shared_ptr<JoystickButton> coButtonStart;
 	std::shared_ptr<JoystickButton> coButtonBack;
 	std::shared_ptr<JoystickButton> coButtonRB;
 	std::shared_ptr<JoystickButton> coButtonLB;
@@ -35,6 +34,7 @@ private:
 	std::shared_ptr<JoystickButton> dButtonBack;
 	std::shared_ptr<JoystickButton> dButtonRB;
 	std::shared_ptr<JoystickButton> dButtonLB;
+	std::shared_ptr<JoystickButton> coButtonStart;
 	std::shared_ptr<JoystickButton> dButtonY;
 	std::shared_ptr<JoystickButton> dButtonX;
 	std::shared_ptr<JoystickButton> dButtonB;
