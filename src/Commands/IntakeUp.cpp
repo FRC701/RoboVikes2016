@@ -30,7 +30,8 @@ void IntakeUp::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void IntakeUp::Execute() {
-
+	RobotMap::intakeintakeMotor3->Set(0.5);
+	RobotMap::intakeintakeMotor4->Set(0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()

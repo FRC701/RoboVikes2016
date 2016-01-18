@@ -30,6 +30,8 @@ void IntakeIn::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void IntakeIn::Execute() {
+	RobotMap::intakeintakeMotor1->Set(0.5);
+	RobotMap::intakeintakeMotor2->Set(0.5);
 
 }
 
