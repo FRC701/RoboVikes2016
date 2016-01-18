@@ -25,32 +25,28 @@ ShifterToggle::ShifterToggle(): Command() {
 
 // Called just before this Command runs the first time
 void ShifterToggle::Initialize() {
-	int shiftLeftGet = RobotMap::chassisshiftLeft->Get();
-	int shiftRightGet = RobotMap::chassisshiftRight->Get();
-
-	//High Speed Transmission
-	if(shiftLeftGet && shiftRightGet == DoubleSolenoid::kForward)
-	{
-		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kReverse);
-		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kReverse);
-	}
-	//Low Speed Transmission
-	else
-	{
-		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kForward);
-		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kForward);
-	}
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ShifterToggle::Execute() {
-
+	//High Speed Transmission
+	if(RobotMap::chassisshiftLeft->Get() == DoubleSolenoid::kForward)
+	{
+		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kReverse);
+		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kReverse);
+	}
+	//Low Speed Transmission
+	else if(RobotMap::chassisshiftLeft->Get() == DoubleSolenoid::kReverse)
+	{
+		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kForward);
+		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kForward);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShifterToggle::IsFinished() {
-    return false;
+    return true;
 }
 
 // Called once after isFinished returns true

@@ -505,7 +505,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whenReleased
       Base: Joystick Button
       Name: dButtonL3
     - Children: []
