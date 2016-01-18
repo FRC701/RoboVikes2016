@@ -28,6 +28,8 @@ CAN:
 		rightMotor1(4)
 		rightMotor2(5)
 		rightMotor3(6)
+		
+		intakeMotor1(7)
 	
 
 Others:
