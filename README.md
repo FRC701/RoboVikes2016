@@ -1,48 +1,59 @@
-*******USING ROBOTBUILDER***********
-######## RoboVikes2016 #############
-FIRST Stronghold 2016 Robot Code
-Mappings:
-USB Connecting:
-	172.22.11.2
-Other(using mDNS):
-	robotrio-701-FRC.local
-Joysticks:
-	driver(0)
-	coDriver(1)
-Buttons:
-	dButtonA(1)
-Sensors:
+# FIRST Stronghold 2016
 
-CAN:
-	PDP(0)
-	
-	PCM(0):
-		I.E:
-		SomePneumatic(PCMChannel[in this case 0], ForwardChannel, ReverseChannel)
-	
+RoboVikes2016
 
-	CANTalons:
-		leftMotor1(1)
-		leftMotor2(2)
-		leftMotor3(3)
-		rightMotor1(4)
-		rightMotor2(5)
-		rightMotor3(6)
-		
-		intakeMotor1(7)
+## Using RobotBuilder
+
+### Mappings:
+
+* USB Connecting:
+	* 172.22.11.2
+* Other(using mDNS):
+	* robotrio-701-FRC.local
+* Joysticks:
+	* driver(0)
+	* coDriver(1)
+* Buttons:
+	* dButtonA(1)
+* Sensors:
+* CAN:
+	* PDP(0)
+	* PCM(0):
+		* I.E: SomePneumatic(PCMChannel[in this case 0], ForwardChannel, ReverseChannel)
 	
 
-Others:
-	use REDTAPE for connecting to robotRio via mDNS (until silverlight works for chrome or windows 10 I.E, BLUETAP might work untested.
-	use BLACKTAPE for best wireless connectivity.
+### CANTalons:
 
-Questions:
+| Address | Description  |
+| ------: | ------------ |
+|       1 | leftMotor1   |
+|       2 | leftMotor2   |
+|       3 | leftMotor3   |
+|       4 | rightMotor1  |
+|       5 | rightMotor2  |
+|       6 | rightMotor3  |
+|       7 | intakeMotor1 |
+
+
+## Other
+use REDTAPE for connecting to robotRio via mDNS (until silverlight works for chrome or windows 10 I.E, BLUETAPE might work untested.
+use BLACKTAPE for best wireless connectivity.
+
+## Code Style Settings
+
+The code style for Eclipse for the RoboVikes is defined in the RoboVikesProfile.xml file.
+
+1. Select Preferences->C/C++->Code Style->Formatter
+2. Press the Import button
+3. Choose `RoboVikesProfile.xml`
+4. Click Apply
+
+## Questions:
+
+### How to create this?
 	
-	How to create this?
 	
-	
-Contributors:
-	
-	username for github
-	
+# Contributors:
+
+username for github
 	
