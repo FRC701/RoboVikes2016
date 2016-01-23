@@ -12,7 +12,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: &id002 [CANID]
-          value: '1'
+          value: '8'
       Base: CAN Talon
       Name: leftMotor1
     - Children: []
@@ -22,7 +22,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '2'
+          value: '9'
       Base: CAN Talon
       Name: leftMotor2
     - Children: []
@@ -32,7 +32,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '3'
+          value: '10'
       Base: CAN Talon
       Name: leftMotor3
     - Children: []
@@ -156,7 +156,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '8'
+          value: '11'
       Base: CAN Talon
       Name: intakeMotor2
     - Children: []
@@ -166,7 +166,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '9'
+          value: '12'
       Base: CAN Talon
       Name: intakeMotor3
     - Children: []
@@ -176,7 +176,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '10'
+          value: '13'
       Base: CAN Talon
       Name: intakeMotor4
     Properties:
@@ -202,7 +202,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '11'
+          value: '1'
       Base: CAN Talon
       Name: shooterMotor1
     - Children: []
@@ -212,7 +212,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '12'
+          value: '2'
       Base: CAN Talon
       Name: shooterMotor2
     - Children: []
@@ -222,7 +222,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '13'
+          value: '3'
       Base: CAN Talon
       Name: rollerMotor
     Properties:
@@ -325,7 +325,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: RollerOn
+          value: IntakeBall
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -400,7 +400,9 @@ Children:
           default: []
           name: Parameters
           validators: null
-          value: []
+          value:
+          - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: speed,
+            type: double, value: '0.8'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id012
           default: '1'
@@ -412,7 +414,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: ShooterIntake
+          value: ShooterControl
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -1017,14 +1019,23 @@ Children:
         default: []
         name: Parameters
         validators: null
-        value: []
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: shooterIntakeVoltage,
+          type: double}
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: rollerVoltage,
+          type: double}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Shooter}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: []
         name: Parameter presets
         validators: null
-        value: []
+        value:
+        - !!robotbuilder.data.properties.ParameterSet
+          name: lowSetting
+          parameters:
+          - {name: shooterIntakeVoltage, type: double, value: '-0.25'}
+          - {name: rollerVoltage, type: double, value: '-0.5'}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -1035,14 +1046,20 @@ Children:
         default: []
         name: Parameters
         validators: null
-        value: []
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: intakeVoltage,
+          type: double}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Intake}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: []
         name: Parameter presets
         validators: null
-        value: []
+        value:
+        - !!robotbuilder.data.properties.ParameterSet
+          name: halfVoltage
+          parameters:
+          - {name: intakeVoltage, type: double, value: '0.5'}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -1137,12 +1154,164 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: ShifterToggle
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Intake}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id017 []
+        name: Parameter presets
+        validators: null
+        value: *id017
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: IntakeOff
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id018 []
+        name: Parameter presets
+        validators: null
+        value: *id018
+      Commands: !!robotbuilder.data.properties.ListProperty
+        default: &id021
+        - !!robotbuilder.data.CommandGroupEntry
+          command:
+            base:
+              help: A command specifies an action that the robot can perform.
+              name: Command
+              properties:
+              - !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+                name: Requires, type: Subsystem, validators: null, value: None}
+              - !!robotbuilder.data.properties.BooleanProperty {default: true, name: Button on SmartDashboard,
+                validators: null, value: true}
+              - !!robotbuilder.data.properties.ParametersProperty
+                default: []
+                name: Parameters
+                validators: null
+                value: []
+              - !!robotbuilder.data.properties.ParameterSetProperty
+                default: &id019 []
+                name: Parameter presets
+                validators: null
+                value: *id019
+              supports: {}
+              type: Command
+            name: IntakeIn
+            properties:
+              Parameters: !!robotbuilder.data.properties.ParametersProperty
+                default: []
+                name: Parameters
+                validators: null
+                value:
+                - !!robotbuilder.data.properties.ParameterDescriptor {name: intakeVoltage,
+                  type: double}
+              Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+                name: Requires, type: Subsystem, validators: null, value: Intake}
+              Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+                default: []
+                name: Parameter presets
+                validators: null
+                value:
+                - !!robotbuilder.data.properties.ParameterSet
+                  name: halfVoltage
+                  parameters:
+                  - {name: intakeVoltage, type: double, value: '0.5'}
+              Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {
+                default: true, name: Button on SmartDashboard, validators: null, value: true}
+          hasMatch: true
+          order: Parallel
+          parameters:
+            default: []
+            name: ParametersProperty
+            validators: null
+            value:
+            - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: intakeVoltage,
+              type: double, value: '0.5'}
+          previous: null
+        - !!robotbuilder.data.CommandGroupEntry
+          command:
+            base:
+              help: A command specifies an action that the robot can perform.
+              name: Command
+              properties:
+              - !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+                name: Requires, type: Subsystem, validators: null, value: None}
+              - !!robotbuilder.data.properties.BooleanProperty {default: true, name: Button on SmartDashboard,
+                validators: null, value: true}
+              - !!robotbuilder.data.properties.ParametersProperty
+                default: []
+                name: Parameters
+                validators: null
+                value: []
+              - !!robotbuilder.data.properties.ParameterSetProperty
+                default: &id020 []
+                name: Parameter presets
+                validators: null
+                value: *id020
+              supports: {}
+              type: Command
+            name: ShooterIntake
+            properties:
+              Parameters: !!robotbuilder.data.properties.ParametersProperty
+                default: []
+                name: Parameters
+                validators: null
+                value:
+                - !!robotbuilder.data.properties.ParameterDescriptor {name: shooterIntakeVoltage,
+                  type: double}
+                - !!robotbuilder.data.properties.ParameterDescriptor {name: rollerVoltage,
+                  type: double}
+              Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+                name: Requires, type: Subsystem, validators: null, value: Shooter}
+              Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+                default: []
+                name: Parameter presets
+                validators: null
+                value:
+                - !!robotbuilder.data.properties.ParameterSet
+                  name: lowSetting
+                  parameters:
+                  - {name: shooterIntakeVoltage, type: double, value: '-0.25'}
+                  - {name: rollerVoltage, type: double, value: '-0.5'}
+              Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {
+                default: true, name: Button on SmartDashboard, validators: null, value: true}
+          hasMatch: true
+          order: Sequential
+          parameters:
+            default: []
+            name: ParametersProperty
+            validators: null
+            value:
+            - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: shooterIntakeVoltage,
+              type: double, value: '-0.25'}
+            - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: rollerVoltage,
+              type: double, value: '-0.5'}
+          previous: null
+        name: Commands
+        validators: [List]
+        value: *id021
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command Group
+    Name: IntakeBall
   Properties: {}
   Base: Commands
   Name: Commands
 Properties:
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Workspace2016',
-    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\Workspace2016'}
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: /Users/Diego/workspace,
+    extension: null, folder: true, name: Eclipse Workspace, validators: null, value: /Workspace2016}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
