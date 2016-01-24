@@ -82,14 +82,14 @@ OI::OI() {
 
     // SmartDashboard Buttons
     SmartDashboard::PutData("IntakeBall", new IntakeBall());
+    SmartDashboard::PutData("IntakeIn", new IntakeIn());
+    SmartDashboard::PutData("ShooterIntake", new ShooterIntake());
     SmartDashboard::PutData("IntakeOff", new IntakeOff());
     SmartDashboard::PutData("ShifterToggle", new ShifterToggle());
     SmartDashboard::PutData("TankDrive", new TankDrive());
     SmartDashboard::PutData("IntakeDown", new IntakeDown());
     SmartDashboard::PutData("IntakeUp", new IntakeUp());
     SmartDashboard::PutData("IntakeOut", new IntakeOut());
-    SmartDashboard::PutData("IntakeIn: halfVoltage", new IntakeIn(0.5));
-    SmartDashboard::PutData("ShooterIntake: lowSetting", new ShooterIntake(-0.25, -0.5));
     SmartDashboard::PutData("RollerReverse", new RollerReverse());
     SmartDashboard::PutData("ShooterReverse", new ShooterReverse());
     SmartDashboard::PutData("RollerOn", new RollerOn());
