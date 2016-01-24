@@ -24,6 +24,8 @@
 #include "Commands/IntakeOn.h"
 #include "Commands/IntakeArmOn.h"
 #include "Commands/DefaultIntake.h"
+#include "Commands/FullIntake.h"
+#include "Commands/LiftShooter.h"
 
 
 
@@ -71,11 +73,11 @@ OI::OI() {
     dButtonY.reset(new JoystickButton(driver.get(), 4));
     dButtonY->WhileHeld(new AutonomousCommand());
     dButtonX.reset(new JoystickButton(driver.get(), 3));
-    dButtonX->WhileHeld(new AutonomousCommand());
+    dButtonX->WhileHeld(new FullIntake());
     dButtonB.reset(new JoystickButton(driver.get(), 2));
     dButtonB->WhileHeld(new AutonomousCommand());
     dButtonA.reset(new JoystickButton(driver.get(), 1));
-    dButtonA->WhileHeld(new AutonomousCommand());
+    dButtonA->WhileHeld(new LiftShooter());
 
     // SmartDashboard Buttons
     SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());

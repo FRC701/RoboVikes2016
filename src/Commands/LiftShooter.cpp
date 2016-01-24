@@ -30,8 +30,7 @@ void LiftShooter::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void LiftShooter::Execute() {
-	RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kForward);
-	RobotMap::chassisshiftRight->Set(DoubleSolenoid::kForward);
+	RobotMap::chassisshift->Set(DoubleSolenoid::kForward);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -43,3 +42,8 @@ bool LiftShooter::IsFinished() {
 void LiftShooter::End() {
 
 }
+
+void LiftShooter::Interrupted(){
+
+}
+

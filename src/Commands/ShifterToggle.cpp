@@ -31,16 +31,14 @@ void ShifterToggle::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShifterToggle::Execute() {
 	//High Speed Transmission
-	if(RobotMap::chassisshiftLeft->Get() == DoubleSolenoid::kForward)
+	if(RobotMap::chassisshift->Get() == DoubleSolenoid::kForward)
 	{
-		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kReverse);
-		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kReverse);
+		RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
 	}
 	//Low Speed Transmission
-	else if(RobotMap::chassisshiftLeft->Get() == DoubleSolenoid::kReverse)
+	else if(RobotMap::chassisshift->Get() == DoubleSolenoid::kReverse)
 	{
-		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kForward);
-		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kForward);
+		RobotMap::chassisshift->Set(DoubleSolenoid::kForward);
 	}
 }
 
