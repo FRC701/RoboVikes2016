@@ -9,7 +9,7 @@ FullIntake::FullIntake()
 	//      AddSequential(new Command2());
 	// these will run in order.
 	AddParallel(new ShooterRollerIntakeOn(1.0));
-	AddSequential(new IntakeOn(-1.0));
+	AddSequential(new IntakeOn(1.0));
 	// To run multiple commands at the same time,
 	// use AddParallel()
 	// e.g. AddParallel(new Command1());
