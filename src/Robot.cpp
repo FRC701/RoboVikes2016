@@ -88,11 +88,11 @@ void Robot::TeleopInit() {
 		autonomousCommand->Cancel();
 
 	std::cout<< "Areas: ";
-	//std::vector<double> arr = table->GetNumberArray("area", llvm::ArrayRef<double>());
-	//for (unsigned int i = 0; i < arr.size(); i++)
-	//{
-	//	std::cout << arr[i] << " ";
-	//}
+	std::vector<double> arr = table->GetNumberArray("area", llvm::ArrayRef<double>());
+	for (unsigned int i = 0; i < arr.size(); i++)
+	{
+		std::cout << arr[i] << " ";
+	}
 	std::cout << std::endl;
 }
 
