@@ -7,9 +7,7 @@
 class Drive: public Command
 {
 public:
-	Drive();
-	Drive(int encoderValGoal);
-	Drive(int encoderValGoal, double speedinput);
+	Drive(int goal, double mspeed);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -18,7 +16,6 @@ public:
 private:
 	int encoderValueGoal;
 	double speed;
-	int direction;
 };
 
 #endif
