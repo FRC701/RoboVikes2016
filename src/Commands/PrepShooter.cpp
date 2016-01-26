@@ -10,14 +10,9 @@ PrepShooter::PrepShooter()
 	//      AddSequential(new Command2());
 	// these will run in order.
 
-	AddSequential(new ShooterControl(0.5));	//placeholder
+	AddSequential(new ShooterControl(0.5));
 	AddParallel(new IntakeDown());
-	AddSequential(new ShooterUp());			//still needs to be made
-
-
-
-
-
+	AddSequential(new ShooterUp());
 		/*	while (Robot::oi->dButtonStart->Get() =! true)
 		{
 			std::cout << "waiting...";
