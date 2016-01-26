@@ -21,6 +21,7 @@
 CrossHighGoalAuto::CrossHighGoalAuto() {
 
 	//Timed through low bar
+	//AddSequential(new IntakeOn(-1.0));
 	AddSequential(new Drive(3000, 1.0));
 	AddSequential(new TimedWideTurn('r', 0.5));
 	AddParallel(new PrepShooter());
