@@ -34,16 +34,6 @@ void DefaultShooter::Execute() {
 	RobotMap::shootershooterMotor2->Set(0.0);
 	RobotMap::shooterrollerMotor->Set(0.0);
 
-	if (RobotMap::shooterliftShooter->Get() == DoubleSolenoid::kForward)
-	{
-			RobotMap::shooterliftShooter->Set(DoubleSolenoid::kForward);
-	}
-
-	else if (RobotMap::shooterliftShooter->Get() == DoubleSolenoid::kReverse)
-	{		RobotMap::shooterliftShooter->Set(DoubleSolenoid::kReverse);
-
-	}
-
 }
 
 // Make this return true when this Command no longer needs to run execute()
