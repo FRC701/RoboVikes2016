@@ -2,15 +2,18 @@
 #define PIDdrive_H
 
 #include "Commands/PIDSubsystem.h"
-#include "WPILib.h"
+
 
 class PIDdrive: public PIDSubsystem
 {
 public:
 	PIDdrive();
+
+	void InitDefaultCommand();
+
+protected:
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
-	void InitDefaultCommand();
 };
 
 #endif
