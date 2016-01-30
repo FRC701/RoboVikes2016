@@ -69,7 +69,7 @@ OI::OI() {
     dButtonRB.reset(new JoystickButton(driver.get(), 6));
     dButtonRB->WhileHeld(new ShooterIntake());
     dButtonLB.reset(new JoystickButton(driver.get(), 5));
-    dButtonLB->WhenPressed(new PIDSet(10.0));
+    dButtonLB->WhenPressed(new PIDSet(1000.0, 90, 5));
     dButtonY.reset(new JoystickButton(driver.get(), 4));
     dButtonY->WhileHeld(new AutonomousCommand());
     dButtonX.reset(new JoystickButton(driver.get(), 3));

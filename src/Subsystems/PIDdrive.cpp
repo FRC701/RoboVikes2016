@@ -5,11 +5,12 @@
 #include "../Commands/PIDrive.h"
 
 PIDdrive::PIDdrive() :
-		PIDSubsystem("PIDdrive", 90.0, 0.0, 0.0)
+		PIDSubsystem("PIDdrive", 9.0, 6.0, 0.0)
 {
 
-	SetSetpoint(0);
 	Disable();
+	SetSetpoint(0);
+	SetAbsoluteTolerance(10);
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system
 	//                  to
@@ -21,8 +22,8 @@ double PIDdrive::ReturnPIDInput()
 	// Return your input value for the PID loop
 	// e.g. a sensor, like a potentiometer:
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
-	return RobotMap::chassisleftMotor2->GetEncPosition();
-	return RobotMap::shootershooterMotor1->GetEncPosition();
+	return RobotMap::chassisrightMotor2->GetEncPosition();
+
 
 	//Robot::
 

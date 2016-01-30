@@ -80,10 +80,15 @@ void Robot::TeleopInit() {
     SmartDashboard::PutNumber("LeftMotor2",RobotMap::chassisrightMotor2->Get());
     SmartDashboard::PutNumber("LeftMotor3",RobotMap::chassisrightMotor3->Get());
 
+    SmartDashboard::PutNumber("EncoderValue",RobotMap::chassisrightMotor2->GetEncPosition() );
+
+
+    RobotMap::chassisrightMotor2->SetEncPosition(0);
 }
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
+	SmartDashboard::PutNumber("EncoderValue",RobotMap::chassisrightMotor2->GetEncPosition() );
 }
 
 void Robot::TestPeriodic() {
