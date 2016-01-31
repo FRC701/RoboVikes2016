@@ -69,10 +69,13 @@ void Robot::TeleopInit() {
 	//Setting starting values of Pneumatics......................
 	RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kReverse);
 	RobotMap::chassisshiftRight->Set(DoubleSolenoid::kReverse);
+
 }
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
+
+
 }
 
 void Robot::TestPeriodic() {
