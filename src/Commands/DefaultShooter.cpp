@@ -34,6 +34,54 @@ void DefaultShooter::Execute() {
 
     RobotMap::shooterShooterMotor1->Set(0.0);
     RobotMap::shooterShooterMotor2->Set(0.0);
+
+    //Check for button press then start counter
+
+    if(Robot::oi->getdriver()->GetRawButton(1) && warmUpCounter == 0)       //Detect we want to shoot and the shooter isn't running
+        startWarmUpCounter = true;
+
+    if(Robot::oi->getdriver()->GetRawButton(1) && warmUpCounter > 20) {      //Detect we want to stop shooting
+        RobotMap::shooterRollerMotor->Set(0.0);
+
+        RobotMap::shooterShooterMotor1->Set(0.0);
+        RobotMap::shooterShooterMotor2->Set(0.0);
+
+        warmUpCounter = 0;
+        shootCounter = 0;
+
+        startWarmUpCounter = false;
+        startShootCounter = false;
+
+    }
+
+    if(Robot::oi->getdriver()->GetRawAxis(6) && warmUpCounter > 100){       //Detect we want to shoot and loops have passed
+        RobotMap::shooterRollerMotor->Set(1.0);
+        startWarmUpCounter = false;
+        startShootCounter = true;
+    }
+
+    if(startWarmUpCounter){                                                 //Start warming up shooter for x loops
+        RobotMap::shooterShooterMotor1->Set(1.0);
+        RobotMap::shooterShooterMotor2->Set(1.0);
+        warmUpCounter++;
+    }
+
+    if(startShootCounter)                                                   //Start counter after shooting
+        shootCounter++;
+
+    if(shootCounter > 50){                                                  //After x loops of being shot reset everything
+        RobotMap::shooterRollerMotor->Set(0.0);
+
+        RobotMap::shooterShooterMotor1->Set(0.0);
+        RobotMap::shooterShooterMotor2->Set(0.0);
+
+        warmUpCounter = 0;
+        shootCounter = 0;
+
+        startWarmUpCounter = false;
+        startShootCounter = false;
+    }
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -43,11 +91,19 @@ bool DefaultShooter::IsFinished() {
 
 // Called once after isFinished returns true
 void DefaultShooter::End() {
+    warmUpCounter = 0;
+    shootCounter = 0;
 
+    startWarmUpCounter = false;
+    startShootCounter = false;
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void DefaultShooter::Interrupted() {
+    warmUpCounter = 0;
+    shootCounter = 0;
 
+    startWarmUpCounter = false;
+    startShootCounter = false;
 }

@@ -24,7 +24,10 @@ ToggleShooterLifter::ToggleShooterLifter(): Command() {
 
 // Called just before this Command runs the first time
 void ToggleShooterLifter::Initialize() {
-
+    if(RobotMap::shooterLiftSolenoid->Get() == DoubleSolenoid::kReverse)
+        RobotMap::shooterLiftSolenoid->Set(DoubleSolenoid::kForward);
+    else
+        RobotMap::shooterLiftSolenoid->Set(DoubleSolenoid::kReverse);
 }
 
 // Called repeatedly when this Command is scheduled to run

@@ -24,7 +24,10 @@ ToggleDriveShifter::ToggleDriveShifter(): Command() {
 
 // Called just before this Command runs the first time
 void ToggleDriveShifter::Initialize() {
-
+    if(RobotMap::chassisDriveShifter->Get() == DoubleSolenoid::kReverse)
+        RobotMap::chassisDriveShifter->Set(DoubleSolenoid::kForward);
+    else
+        RobotMap::chassisDriveShifter->Set(DoubleSolenoid::kReverse);
 }
 
 // Called repeatedly when this Command is scheduled to run
