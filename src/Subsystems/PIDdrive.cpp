@@ -5,12 +5,13 @@
 #include "../Commands/PIDrive.h"
 
 PIDdrive::PIDdrive() :
-		PIDSubsystem("PIDdrive", 9.0, 6.0, 0.0)
+		PIDSubsystem("PIDdrive", 24.0, 0.0, 0.0)
 {
 
 	Disable();
 	SetSetpoint(0);
 	SetAbsoluteTolerance(10);
+	SetOutputRange( -1, 1);
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system
 	//                  to
@@ -38,7 +39,7 @@ double PIDdrive::ReturnPIDInput()
 	RobotMap::chassisleftMotor2->Set(output);
 	RobotMap::chassisleftMotor3->Set(output);
 	RobotMap::chassisrightMotor1->Set(-output);
-	RobotMap::chassisrightMotor2->Set(-output);
+	RobotMap::chassisrightMotor2->Set(output);
 	RobotMap::chassisrightMotor3->Set(-output);
 	RobotMap::shootershooterMotor1->Set(-output);
 

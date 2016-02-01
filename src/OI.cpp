@@ -69,7 +69,9 @@ OI::OI() {
     dButtonRB.reset(new JoystickButton(driver.get(), 6));
     dButtonRB->WhileHeld(new ShooterIntake());
     dButtonLB.reset(new JoystickButton(driver.get(), 5));
-    dButtonLB->WhenPressed(new PIDSet(1000.0, 90, 5));
+    //PIDSet has three parameters (encoder position, tolerance, delay)
+    //only mess with tolerance and delay if you know what your doing as it might cause oscilation
+    dButtonLB->WhenPressed(new PIDSet(100000.0, 2000, .00005));
     dButtonY.reset(new JoystickButton(driver.get(), 4));
     dButtonY->WhileHeld(new AutonomousCommand());
     dButtonX.reset(new JoystickButton(driver.get(), 3));
