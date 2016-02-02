@@ -20,12 +20,37 @@ void Display::Execute()
 	//int count;
 	//count++;
 	//SmartDashboard::PutNumber("Count", count);
-	//Encoder Get Position
-    SmartDashboard::PutNumber("EncoderValue",RobotMap::chassisrightMotor2->GetEncPosition());
-    SmartDashboard::PutString("Test", "It Works");
 
-    //Getting Values
-    SmartDashboard::GetNumber("PID Drive Setpoint", doublesetvalue);
+	//Displaying Values
+    SmartDashboard::PutNumber("EncoderValue of RightSide",RobotMap::chassisrightMotor1->GetEncPosition());
+    SmartDashboard::PutNumber("EncoderValue of LeftSide", RobotMap::chassisleftMotor1->GetEncPosition());
+    SmartDashboard::PutNumber("Speed of Shooter1", RobotMap::shootershooterMotor1->GetEncVel());
+    SmartDashboard::PutNumber("Speed of Shooter2", RobotMap::shootershooterMotor2->GetEncVel());
+    SmartDashboard::PutNumber("Intake Position1", RobotMap::intakeintakeMotor1->GetEncPosition());
+    SmartDashboard::PutNumber("Intake Position2", RobotMap::intakeintakeMotor2->GetEncPosition());
+
+    SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());
+    SmartDashboard::PutData("ShifterToggle", new ShifterToggle());
+    SmartDashboard::PutData("ShooterControl: shooterOff", new ShooterControl(0.0));
+    SmartDashboard::PutData("ShooterControl: shooter50P", new ShooterControl(0.5));
+    SmartDashboard::PutData("ShooterControl: shooter55P", new ShooterControl(0.55));
+    SmartDashboard::PutData("ShooterControl: shooter60P", new ShooterControl(0.6));
+    SmartDashboard::PutData("ShooterControl: shooter65P", new ShooterControl(0.65));
+    SmartDashboard::PutData("ShooterControl: shooter70P", new ShooterControl(0.7));
+    SmartDashboard::PutData("ShooterControl: shooter75P", new ShooterControl(0.75));
+    SmartDashboard::PutData("ShooterControl: shooter80P", new ShooterControl(0.8));
+    SmartDashboard::PutData("ShooterControl: shooter85P", new ShooterControl(0.85));
+    SmartDashboard::PutData("ShooterControl: shooter90P", new ShooterControl(0.9));
+    SmartDashboard::PutData("ShooterControl: shooter95P", new ShooterControl(0.95));
+    SmartDashboard::PutData("ShooterControl: shooter100P", new ShooterControl(1.0));
+    SmartDashboard::PutData("ShooterControl: shooterReverse", new ShooterControl(-0.25));
+    SmartDashboard::PutData("TankDrive", new TankDrive());
+
+    SmartDashboard::PutData("Shooter Vary Speed", new Shooter Control(SmartDashboard::GetNumber("Shooter Speed")));
+    //Getting Values off SmartDashboard
+
+
+
 
 }
 
