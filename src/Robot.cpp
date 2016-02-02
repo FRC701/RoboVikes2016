@@ -69,9 +69,9 @@ void Robot::TeleopInit() {
 	// these lines or comment it out.
 	if (autonomousCommand.get() != nullptr)
 		autonomousCommand->Cancel();
-	//Setting starting values of Pneumatics......................
-	RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
-	RobotMap::shooterliftShooter->Set(DoubleSolenoid::kForward);
+	//Setting starting values of Pneumatics......................(no need for now)
+	//RobotMap::chassisShift->Set(DoubleSolenoid::kReverse);
+	//RobotMap::shooterliftShooter->Set(DoubleSolenoid::kForward);
 }
 
 void Robot::TeleopPeriodic() {

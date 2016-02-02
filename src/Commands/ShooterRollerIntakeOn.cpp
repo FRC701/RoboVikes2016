@@ -31,9 +31,9 @@ void ShooterRollerIntakeOn::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ShooterRollerIntakeOn::Execute() {
-	RobotMap::shooterrollerMotor->Set(speed);
-	RobotMap::shootershooterMotor1->Set(-speed);
-	RobotMap::shootershooterMotor2->Set(speed);
+	RobotMap::shooterRoller->Set(speed);
+	RobotMap::shootershooterRight->Set(-speed);
+	RobotMap::shootershooterLeft->Set(speed);
 
 }
 

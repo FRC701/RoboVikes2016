@@ -31,8 +31,8 @@ void IntakeArmOn::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void IntakeArmOn::Execute() {
-	RobotMap::intakeintakeMotor3->Set(speed);
-	RobotMap::intakeintakeMotor4->Set(speed);
+	RobotMap::intakeintakearmLeft->Set(speed);
+	RobotMap::intakeintakearmRight->Set(speed);
 }
 
 // Make this return true when this Command no longer needs to run execute()
