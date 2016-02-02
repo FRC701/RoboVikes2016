@@ -29,7 +29,8 @@ void AutonomousCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutonomousCommand::Execute() {
-
+	std::cout << "This is random text in a string that will be a text in a text box";
+	std::cout << ", but for now will be in a window.";
 }
 
 // Make this return true when this Command no longer needs to run execute()
