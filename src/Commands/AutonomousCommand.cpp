@@ -32,6 +32,7 @@ void AutonomousCommand::Execute() {
 	std::cout << "This is random text in a string that will be a text in a text box";
 	std::cout << ", but for now will be in a window.";
 	std::cout << "Test Successful";
+	std::cout << "Look at this";
 }
 
 // Make this return true when this Command no longer needs to run execute()
