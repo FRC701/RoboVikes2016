@@ -2,14 +2,14 @@
 #include "ShooterRollerIntakeOn.h"
 #include "IntakeOn.h"
 
-FullIntake::FullIntake()
+FullIntake::FullIntake(double speed)
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.
-	AddParallel(new ShooterRollerIntakeOn(1.0));
-	AddSequential(new IntakeOn(1.0));
+	AddParallel(new ShooterRollerIntakeOn(speed));
+	AddSequential(new IntakeOn(speed));
 	// To run multiple commands at the same time,
 	// use AddParallel()
 	// e.g. AddParallel(new Command1());
