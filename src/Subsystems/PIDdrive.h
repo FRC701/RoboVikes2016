@@ -12,6 +12,7 @@ public:
 
 
 	void InitDefaultCommand();
+private:
 
 protected:
 	double ReturnPIDInput();

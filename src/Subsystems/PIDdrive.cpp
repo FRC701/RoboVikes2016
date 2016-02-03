@@ -5,13 +5,16 @@
 #include "../Commands/PIDrive.h"
 
 PIDdrive::PIDdrive() :
-		PIDSubsystem("PIDdrive", 24.0, 0.0, 0.0)
+
+PIDSubsystem("PIDdrive", 200000.0, 0.0, 0.0)
+
+
 {
 
 	Disable();
 	SetSetpoint(0);
 	SetAbsoluteTolerance(10);
-	SetOutputRange( -1, 1);
+
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system
 	//                  to
