@@ -6,14 +6,14 @@
 
 PIDdrive::PIDdrive() :
 
-PIDSubsystem("PIDdrive", 200000.0, 0.0, 0.0)
-
-
+PIDSubsystem("PIDdrive", 0.000085, 0.0, 0.0)		//Proportional Integral Derivative
 {
-
+	/*
 	Disable();
 	SetSetpoint(0);
-	SetAbsoluteTolerance(10);
+	*/
+
+	SetAbsoluteTolerance(0);
 
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system
@@ -26,6 +26,7 @@ double PIDdrive::ReturnPIDInput()
 	// Return your input value for the PID loop
 	// e.g. a sensor, like a potentiometer:
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
+	SmartDashboard::PutNumber("ChassisRightMotor2Encoder_subsystem", RobotMap::chassisrightMotor2->GetEncPosition());
 	return RobotMap::chassisrightMotor2->GetEncPosition();
 
 
@@ -38,11 +39,14 @@ double PIDdrive::ReturnPIDInput()
 	// Use output to drive your system, like a motor
 	// e.g. yourMotor->Set(output);
 
+	SmartDashboard::PutNumber("Output", output);
+
 	RobotMap::chassisleftMotor1->Set(output);
 	RobotMap::chassisleftMotor2->Set(output);
 	RobotMap::chassisleftMotor3->Set(output);
+
 	RobotMap::chassisrightMotor1->Set(-output);
-	RobotMap::chassisrightMotor2->Set(output);
+	RobotMap::chassisrightMotor2->Set(output);		//Todo Should this be reversed?
 	RobotMap::chassisrightMotor3->Set(-output);
 	RobotMap::shootershooterMotor1->Set(-output);
 
@@ -50,7 +54,7 @@ double PIDdrive::ReturnPIDInput()
 
 void PIDdrive::InitDefaultCommand()
 {
-	SetDefaultCommand(new PIDrive());
+	//SetDefaultCommand(new PIDrive());
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 }

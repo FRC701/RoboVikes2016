@@ -1,35 +1,37 @@
 #include <Commands/PIDSet.h>
 #include <Timer.h>
 
-PIDSet::PIDSet(double Set, double tolerance, double delay)
-{
-setPoint = Set;
-mtolerance = tolerance;
-mdelay = delay;
+PIDSet::PIDSet(){
+	m_setPoint = RobotMap::chassisrightMotor2->GetEncPosition();
+	m_delay = 0.0;
+
+	Requires(Robot::chassis.get());
 }
 
-PIDSet::PIDSet(double Set, double tolerance)
+PIDSet::PIDSet(double setPoint)
 {
-	setPoint = Set;
-	mtolerance = tolerance;
-	mdelay = .00005;
-
-}
-PIDSet::PIDSet(double Set)
-{
-	setPoint = Set;
-	mtolerance = 2000;
-	mdelay = .0005;
+	m_setPoint = setPoint;
+	m_delay = 0.5;
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	Requires(Robot::chassis.get());
+}
+
+PIDSet::PIDSet(double setPoint, double delay)
+{
+	m_setPoint = setPoint;
+	m_delay = delay;
+
+	Requires(Robot::chassis.get());
 }
 
 // Called just before this Command runs the first time
 void PIDSet::Initialize()
 {
 	timer.Start();
-	Robot::piddrive->SetSetpoint(setPoint);
-	Robot::piddrive->SetAbsoluteTolerance(mtolerance);
+	Robot::piddrive->SetSetpoint(m_setPoint);
+	SmartDashboard::PutNumber("SetPoint", m_setPoint);		//Debugging
+
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -42,6 +44,7 @@ void PIDSet::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool PIDSet::IsFinished()
 {
+	/*
 	if(Robot::piddrive->OnTarget() == true)
 	{
 		if(timer.HasPeriodPassed(mdelay))
@@ -53,22 +56,26 @@ bool PIDSet::IsFinished()
 			timer.Reset();
 			return false;
 		}
+*/
+	return Robot::piddrive->OnTarget() && timer.HasPeriodPassed(m_delay);
 
-	return false;
-
-	}
+}
 
 
 
 // Called once after isFinished returns true
 void PIDSet::End()
 {
-Robot::piddrive->Disable();
+	timer.Stop();
+	timer.Reset();
+	Robot::piddrive->Disable();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void PIDSet::Interrupted()
 {
-Robot::piddrive->Disable();
+	timer.Stop();
+	timer.Reset();
+	Robot::piddrive->Disable();
 }

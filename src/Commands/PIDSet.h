@@ -6,19 +6,19 @@
 
 class PIDSet: public Command {
 public :
-	PIDSet(double Set, double tolerance, double delay);
-	PIDSet(double Set, double tolerance);
-	PIDSet(double Set);
+
+	PIDSet();
+	PIDSet(double setPoint);
+	PIDSet(double setPoint, double delay);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
 private:
-	double setPoint;
-	double mtolerance;
+	double m_setPoint;
 	Timer timer;
-	double mdelay;
+	double m_delay;
 };
 
 #endif
