@@ -75,9 +75,9 @@ OI::OI() {
 		coButtonBack.reset(new JoystickButton(coDriver.get(), 7));
 		coButtonBack->WhileHeld(new AutonomousCommand());
 		coButtonRB.reset(new JoystickButton(coDriver.get(), 6));
-		coButtonRB->WhileHeld(new AutonomousCommand());
+		coButtonRB->WhileHeld(new IntakeArmOn(1.0));
 		coButtonLB.reset(new JoystickButton(coDriver.get(), 5));
-		coButtonLB->WhileHeld(new AutonomousCommand());
+		coButtonLB->WhileHeld(new IntakeArmOn(-1.0));
 		coButtonY.reset(new JoystickButton(coDriver.get(), 4));
 		coButtonY->WhileHeld(new AutonomousCommand());
 		coButtonX.reset(new JoystickButton(coDriver.get(), 3));
@@ -98,9 +98,9 @@ OI::OI() {
 		coButtonBack.reset(new JoystickButton(coDriver.get(), 7));
 		coButtonBack->WhileHeld(new AutonomousCommand());
 		coButtonRB.reset(new JoystickButton(coDriver.get(), 6));
-		coButtonRB->WhileHeld(new IntakeArmOn(0.25));
+		coButtonRB->WhileHeld(new IntakeArmOn(1.0));
 		coButtonLB.reset(new JoystickButton(coDriver.get(), 5));
-		coButtonLB->WhileHeld(new IntakeArmOn(-0.25));
+		coButtonLB->WhileHeld(new IntakeArmOn(-1.0));
 		coButtonY.reset(new JoystickButton(coDriver.get(), 4));
 		coButtonY->WhileHeld(new FullIntake(-1.0));
 		coButtonX.reset(new JoystickButton(coDriver.get(), 3));
@@ -122,9 +122,9 @@ OI::OI() {
     dButtonBack.reset(new JoystickButton(driver.get(), 7));
     dButtonBack->WhileHeld(new AutonomousCommand());
     dButtonRB.reset(new JoystickButton(driver.get(), 6));
-    dButtonRB->WhileHeld(new AutonomousCommand());
+    dButtonRB->WhileHeld(new IntakeArmOn(1.0));
     dButtonLB.reset(new JoystickButton(driver.get(), 5));
-    dButtonLB->WhileHeld(new AutonomousCommand());
+    dButtonLB->WhileHeld(new IntakeArmOn(-1.0));
     dButtonY.reset(new JoystickButton(driver.get(), 4));
     dButtonY->WhileHeld(new AutonomousCommand());
     dButtonX.reset(new JoystickButton(driver.get(), 3));
