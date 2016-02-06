@@ -1,4 +1,4 @@
-#include <Commands/PIDSet.h>
+#include "PIDSet.h"
 #include <Timer.h>
 
 PIDSet::PIDSet(){
@@ -28,7 +28,7 @@ PIDSet::PIDSet(double setPoint, double delay)
 // Called just before this Command runs the first time
 void PIDSet::Initialize()
 {
-	timer.Start();
+	//timer.Start();
 	Robot::piddrive->SetSetpoint(m_setPoint);
 	SmartDashboard::PutNumber("SetPoint", m_setPoint);		//Debugging
 
@@ -57,7 +57,7 @@ bool PIDSet::IsFinished()
 			return false;
 		}
 */
-	return Robot::piddrive->OnTarget() && timer.HasPeriodPassed(m_delay);
+	return Robot::piddrive->OnTarget(); // timer.HasPeriodPassed(m_delay);
 
 }
 
@@ -66,8 +66,8 @@ bool PIDSet::IsFinished()
 // Called once after isFinished returns true
 void PIDSet::End()
 {
-	timer.Stop();
-	timer.Reset();
+	//timer.Stop();
+	//timer.Reset();
 	Robot::piddrive->Disable();
 }
 
