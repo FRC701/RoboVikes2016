@@ -30,8 +30,8 @@ void TankDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TankDrive::Execute() {
-  int lY = Robot::oi->getdriver()->GetRawAxis(1) * -1;
-	int rY = Robot::oi->getdriver()->GetRawAxis(5);
+  int lY = Robot::oi->getdriver()->GetRawAxis(1);
+	int rY = Robot::oi->getdriver()->GetRawAxis(5) *-1;
 	//Left Side
 	RobotMap::chassisleftMotor1->Set(lY);
 	RobotMap::chassisleftMotor2->Set(lY);
