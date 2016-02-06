@@ -42,6 +42,29 @@ void TankDrive::Execute() {
 	RobotMap::chassisrightMotor2->Set(rY);
 	RobotMap::chassisrightMotor3->Set(rY);
 
+	//Automatic Shifters
+	double shiftUpVelocity = 1;
+	double shiftDownVelocity = 0;
+
+	if ((RobotMap::chassisshiftLeft->Get() == DoubleSolenoid::kForward)
+			&& (RobotMap::chassisleftMotor1->GetEncVel()
+			|| RobotMap::chassisrightMotor1->GetEncVel() == shiftUpVelocity)
+		&& (Robot::oi->getdriver()->GetRawAxis(1)
+				|| Robot::oi->getdriver()->GetRawAxis(5) >= .8))
+	{
+		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kReverse);
+		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kReverse);
+	}
+
+	if ((RobotMap::chassisshiftLeft->Get() == DoubleSolenoid::kReverse)
+				&& (RobotMap::chassisleftMotor1->GetEncVel()
+				&& RobotMap::chassisrightMotor1->GetEncVel() == shiftDownVelocity)
+			&& (Robot::oi->getdriver()->GetRawAxis(1)
+					&& Robot::oi->getdriver()->GetRawAxis(5) >= 0))
+	{
+		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kForward);
+		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kForward);
+	}
 
 }
 
