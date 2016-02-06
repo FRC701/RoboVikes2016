@@ -6,14 +6,14 @@
 
 PIDdrive::PIDdrive() :
 
-PIDSubsystem("PIDdrive", 0.000085, 0.0, 0.0)		//Proportional Integral Derivative
+PIDSubsystem("PIDdrive", 0.000085, 0.0, 0.000085)		//Proportional Integral Derivative TODO
 {
 	/*
 	Disable();
 	SetSetpoint(0);
 	*/
 
-	SetAbsoluteTolerance(0);
+	SetAbsoluteTolerance(0);						//TODO Adjust value
 
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system
