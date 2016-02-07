@@ -1,10 +1,11 @@
 #include "PIDIntake.h"
+#include "../Robot.h"
 #include "../RobotMap.h"
 #include "SmartDashboard/SmartDashboard.h"
 #include "LiveWindow/LiveWindow.h"
 #include "../Commands/PIDintake.h"
 PIDIntake::PIDIntake() :
-		PIDSubsystem("PIDIntake", 1.0, 0.0, 0.0)
+		PIDSubsystem("PIDIntake", Robot::prefs->GetDouble("PValueIntake", 0.0), 0.0, 0.0)
 {
 	SetSetpoint(1);
 	Disable();
