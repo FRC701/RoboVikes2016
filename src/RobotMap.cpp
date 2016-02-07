@@ -39,43 +39,43 @@ void RobotMap::init() {
 
     chassisleftMotor1.reset(new CANTalon(1));
     lw->AddActuator("Chassis", "leftMotor1", chassisleftMotor1);
-    
+
     chassisleftMotor2.reset(new CANTalon(2));
     lw->AddActuator("Chassis", "leftMotor2", chassisleftMotor2);
-    
+
     chassisleftMotor3.reset(new CANTalon(3));
     lw->AddActuator("Chassis", "leftMotor3", chassisleftMotor3);
-    
+
     chassisrightMotor1.reset(new CANTalon(4));
     lw->AddActuator("Chassis", "rightMotor1", chassisrightMotor1);
-    
+
     chassisrightMotor2.reset(new CANTalon(5));
     lw->AddActuator("Chassis", "rightMotor2", chassisrightMotor2);
-    
+
     chassisrightMotor3.reset(new CANTalon(6));
     lw->AddActuator("Chassis", "rightMotor3", chassisrightMotor3);
 
     chassisshift.reset(new DoubleSolenoid(0, 3)); //TODO changed back to 0,1
     lw->AddActuator("Chassis", "shiftLeft", chassisshift);
-    
+
     intakeintakeMotor1.reset(new CANTalon(7));
     lw->AddActuator("Intake", "intakeMotor1", intakeintakeMotor1);
-    
+
     intakeintakeMotor2.reset(new CANTalon(8));
     lw->AddActuator("Intake", "intakeMotor2", intakeintakeMotor2);
-    
+
     intakeintakeMotor3.reset(new CANTalon(9));
     lw->AddActuator("Intake", "intakeMotor3", intakeintakeMotor3);
-    
+
     intakeintakeMotor4.reset(new CANTalon(10));
     lw->AddActuator("Intake", "intakeMotor4", intakeintakeMotor4);
-    
+
     shootershooterMotor1.reset(new CANTalon(11));
     lw->AddActuator("Shooter", "shooterMotor1", shootershooterMotor1);
-    
+
     shootershooterMotor2.reset(new CANTalon(12));
     lw->AddActuator("Shooter", "shooterMotor2", shootershooterMotor2);
-    
+
     shooterrollerMotor.reset(new CANTalon(13));
     lw->AddActuator("Shooter", "rollerMotor", shooterrollerMotor);
 
