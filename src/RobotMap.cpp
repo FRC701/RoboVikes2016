@@ -77,7 +77,7 @@ void RobotMap::init() {
     shooterrollerMotor.reset(new CANTalon(3));
     lw->AddActuator("Shooter", "rollerMotor", shooterrollerMotor);
     
-    shooterliftShooter.reset(new DoubleSolenoid(2, 3));
+    shooterliftShooter.reset(new DoubleSolenoid(0, 7));
     lw->AddActuator("Shooter", "liftShooter", shooterliftShooter);
 
 

@@ -43,27 +43,30 @@ void TankDrive::Execute() {
 	RobotMap::chassisrightMotor3->Set(rY);
 
 	//Automatic Shifters
-	double shiftUpVelocity = 1;
-	double shiftDownVelocity = 0;
+	SmartDashboard::PutNumber("EncodeValue chassisrightmotor2", RobotMap::chassisrightMotor2->GetEncVel());
+	double shiftUpVelocity = SmartDashboard::GetNumber("UpVelocity", 1000);
 
-	if ((RobotMap::chassisshiftLeft->Get() == DoubleSolenoid::kForward)
+	double shiftDownVelocity = SmartDashboard::GetNumber("DownVelocity", 0);
+
+	if ((RobotMap::chassisshift->Get() == DoubleSolenoid::kReverse)
 			&& (RobotMap::chassisleftMotor1->GetEncVel()
-			|| RobotMap::chassisrightMotor1->GetEncVel() == shiftUpVelocity)
-		&& (Robot::oi->getdriver()->GetRawAxis(1)
-				|| Robot::oi->getdriver()->GetRawAxis(5) >= .8))
+			|| RobotMap::chassisrightMotor2->GetEncVel() >= shiftUpVelocity)
+		/* && (Robot::oi->getdriver()->GetRawAxis(1)
+				|| Robot::oi->getdriver()->GetRawAxis(5) >= .8))*/ )
 	{
-		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kReverse);
-		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kReverse);
+		RobotMap::chassisshift->Set(DoubleSolenoid::kForward);
+		//RobotMap::chassisshiftRight->Set(DoubleSolenoid::kReverse);
 	}
 
-	if ((RobotMap::chassisshiftLeft->Get() == DoubleSolenoid::kReverse)
+	if ((RobotMap::chassisshift->Get() == DoubleSolenoid::kForward)
 				&& (RobotMap::chassisleftMotor1->GetEncVel()
-				&& RobotMap::chassisrightMotor1->GetEncVel() == shiftDownVelocity)
-			&& (Robot::oi->getdriver()->GetRawAxis(1)
-					&& Robot::oi->getdriver()->GetRawAxis(5) >= 0))
+				|| RobotMap::chassisrightMotor2->GetEncVel() <= shiftDownVelocity)
+				//Change || back into && when used in the robot code.
+			/*&& (Robot::oi->getdriver()->GetRawAxis(1)
+					&& Robot::oi->getdriver()->GetRawAxis(5) == 0.1)) */)
 	{
-		RobotMap::chassisshiftLeft->Set(DoubleSolenoid::kForward);
-		RobotMap::chassisshiftRight->Set(DoubleSolenoid::kForward);
+		RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
+		//RobotMap::chassisshiftRight->Set(DoubleSolenoid::kForward);
 	}
 
 }
