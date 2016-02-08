@@ -20,6 +20,9 @@
 #include "Commands/IntakeVariableLift.h"
 #include "Commands/IntakeVariablePull.h"
 #include "Commands/ShooterVariableControl.h"
+#include "Commands/TestChassis.h"
+#include "Commands/TestIntake.h"
+#include "Commands/TestShoot.h"
 #include "Commands/ToggleDriveShifter.h"
 #include "Commands/ToggleShooterLifter.h"
 
@@ -56,7 +59,7 @@ OI::OI() {
     dButtonR3.reset(new JoystickButton(driver.get(), 10));
     dButtonR3->WhileHeld(new AutonomousCommand());
     dButtonL3.reset(new JoystickButton(driver.get(), 9));
-    dButtonL3->WhenReleased(new AutonomousCommand());
+    dButtonL3->WhileHeld(new AutonomousCommand());
     dButtonStart.reset(new JoystickButton(driver.get(), 8));
     dButtonStart->WhileHeld(new AutonomousCommand());
     dButtonBack.reset(new JoystickButton(driver.get(), 7));
@@ -75,6 +78,9 @@ OI::OI() {
     dButtonA->WhileHeld(new AutonomousCommand());
 
     // SmartDashboard Buttons
+    SmartDashboard::PutData("TestIntake", new TestIntake());
+    SmartDashboard::PutData("TestChassis", new TestChassis());
+    SmartDashboard::PutData("TestShoot", new TestShoot());
     SmartDashboard::PutData("ToggleShooterLifter", new ToggleShooterLifter());
     SmartDashboard::PutData("ToggleDriveShifter", new ToggleDriveShifter());
     SmartDashboard::PutData("IntakeVariablePull: off", new IntakeVariablePull(0));

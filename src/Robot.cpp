@@ -74,11 +74,6 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
-	SmartDashboard::PutNumber("Encoder Value", RobotMap::chassisRightMotor2->GetEncPosition());
-	SmartDashboard::PutNumber("Encoder Velocity Value", RobotMap::chassisRightMotor2->GetEncVel());
-	SmartDashboard::PutNumber("PulseWidth Value", (RobotMap::chassisRightMotor2->GetPulseWidthPosition() % 4096));
-	SmartDashboard::PutNumber("PulseWidth Velocity Value", RobotMap::chassisRightMotor2->GetPulseWidthVelocity());
-	//SmartDashboard::PutNumber("Random Value", RobotMap::chassisRightMotor2->get);
 }
 
 void Robot::TestPeriodic() {
