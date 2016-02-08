@@ -25,7 +25,7 @@ TankDrive::TankDrive(): Command() {
 
 // Called just before this Command runs the first time
 void TankDrive::Initialize() {
-
+	RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
 }
 
 // Called repeatedly when this Command is scheduled to run

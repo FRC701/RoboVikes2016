@@ -98,9 +98,9 @@ OI::OI() {
 		coButtonBack.reset(new JoystickButton(coDriver.get(), 7));
 		coButtonBack->WhileHeld(new AutonomousCommand());
 		coButtonRB.reset(new JoystickButton(coDriver.get(), 6));
-		coButtonRB->WhileHeld(new IntakeArmOn(1.0));
+		coButtonRB->WhileHeld(new IntakeArmOn(0.5));
 		coButtonLB.reset(new JoystickButton(coDriver.get(), 5));
-		coButtonLB->WhileHeld(new IntakeArmOn(-1.0));
+		coButtonLB->WhileHeld(new IntakeArmOn(-0.5));
 		coButtonY.reset(new JoystickButton(coDriver.get(), 4));
 		coButtonY->WhileHeld(new FullIntake(-1.0));
 		coButtonX.reset(new JoystickButton(coDriver.get(), 3));
