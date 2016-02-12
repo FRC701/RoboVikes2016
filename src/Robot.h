@@ -55,5 +55,6 @@ public:
 	//Test
 private:
 	double BangBangSpeed;
+	int setpoint;
 };
 #endif
