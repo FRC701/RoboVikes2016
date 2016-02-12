@@ -26,14 +26,15 @@ ShooterRollerIntakeOn::ShooterRollerIntakeOn(double speed_): Command() {
 
 // Called just before this Command runs the first time
 void ShooterRollerIntakeOn::Initialize() {
-
+	RobotMap::shooterliftShooter->Set(DoubleSolenoid::kReverse);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ShooterRollerIntakeOn::Execute() {
-	RobotMap::shooterrollerMotor->Set(speed);
+	RobotMap::shooterrollerMotor->Set(-speed);
 	RobotMap::shootershooterMotor1->Set(-speed);
 	RobotMap::shootershooterMotor2->Set(speed);
+
 
 }
 

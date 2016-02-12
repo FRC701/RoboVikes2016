@@ -41,7 +41,7 @@ OI::OI() {
 
 
 
-    if(SmartDashboard::GetString("Co-Driver","CoDriver") == "Fish")
+    /*if(SmartDashboard::GetString("Co-Driver","CoDriver") == "Fish")
     {
 		coButtonR3.reset(new JoystickButton(coDriver.get(), 10));
 		coButtonR3->WhileHeld(new AutonomousCommand());
@@ -62,7 +62,7 @@ OI::OI() {
 		coButtonB.reset(new JoystickButton(coDriver.get(), 2));
 		coButtonB->WhileHeld(new AutonomousCommand());
 		coButtonA.reset(new JoystickButton(coDriver.get(), 1));
-		coButtonA->WhileHeld(new AutonomousCommand());
+		coButtonA->WhileHeld(new LiftShooterToggle());
     }
     else if (SmartDashboard::GetString("Co-Driver","CoDriver") == "Edesiri")
     {
@@ -85,10 +85,10 @@ OI::OI() {
 		coButtonB.reset(new JoystickButton(coDriver.get(), 2));
 		coButtonB->WhileHeld(new AutonomousCommand());
 		coButtonA.reset(new JoystickButton(coDriver.get(), 1));
-		coButtonA->WhileHeld(new AutonomousCommand());
+		coButtonA->WhileHeld(new LiftShooterToggle());
     }
     else
-    {
+    {*/
 		coButtonR3.reset(new JoystickButton(coDriver.get(), 10));
 		coButtonR3->WhileHeld(new AutonomousCommand());
 		coButtonL3.reset(new JoystickButton(coDriver.get(), 9));
@@ -98,18 +98,19 @@ OI::OI() {
 		coButtonBack.reset(new JoystickButton(coDriver.get(), 7));
 		coButtonBack->WhileHeld(new AutonomousCommand());
 		coButtonRB.reset(new JoystickButton(coDriver.get(), 6));
-		coButtonRB->WhileHeld(new IntakeArmOn(0.5));
+		coButtonRB->WhileHeld(new IntakeArmOn(1.0));
 		coButtonLB.reset(new JoystickButton(coDriver.get(), 5));
-		coButtonLB->WhileHeld(new IntakeArmOn(-0.5));
+		coButtonLB->WhileHeld(new IntakeArmOn(-1.0));
 		coButtonY.reset(new JoystickButton(coDriver.get(), 4));
 		coButtonY->WhileHeld(new FullIntake(-1.0));
 		coButtonX.reset(new JoystickButton(coDriver.get(), 3));
 		coButtonX->WhileHeld(new FullIntake(1.0));
 		coButtonB.reset(new JoystickButton(coDriver.get(), 2));
-		coButtonB->WhileHeld(new RollerOn(1.0));
+		coButtonB->WhileHeld(new RollerOn(-1.0));
 		coButtonA.reset(new JoystickButton(coDriver.get(), 1));
 		coButtonA->WhenPressed(new LiftShooterToggle());
-    }
+    //}
+
 
     driver.reset(new Joystick(0));
     

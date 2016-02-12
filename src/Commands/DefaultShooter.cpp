@@ -30,8 +30,10 @@ void DefaultShooter::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DefaultShooter::Execute() {
-	RobotMap::shootershooterMotor1->Set(0.0);
-	RobotMap::shootershooterMotor2->Set(0.0);
+	//RobotMap::shootershooterMotor1->Set(0.0);
+	//RobotMap::shootershooterMotor2->Set(0.0);
+	RobotMap::shootershooterMotor1->Set(Robot::oi->getcoDriver()->GetRawAxis(3));
+	RobotMap::shootershooterMotor2->Set(-Robot::oi->getcoDriver()->GetRawAxis(3));
 	RobotMap::shooterrollerMotor->Set(0.0);
 
 }
