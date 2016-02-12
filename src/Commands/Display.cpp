@@ -30,7 +30,7 @@ void Display::Execute()
     SmartDashboard::PutNumber("Intake Position2", RobotMap::intakeintakeMotor2->GetEncPosition());
 
     SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());
-    SmartDashboard::PutData("ShifterToggle", new ShifterToggle());
+    /*SmartDashboard::PutData("ShifterToggle", new ShifterToggle());
     SmartDashboard::PutData("ShooterControl: shooterOff", new ShooterControl(0.0));
     SmartDashboard::PutData("ShooterControl: shooter50P", new ShooterControl(0.5));
     SmartDashboard::PutData("ShooterControl: shooter55P", new ShooterControl(0.55));
@@ -47,6 +47,7 @@ void Display::Execute()
     SmartDashboard::PutData("TankDrive", new TankDrive());
 
     SmartDashboard::PutData("Shooter Vary Speed", new Shooter Control(SmartDashboard::GetNumber("Shooter Speed")));
+    */
     //Getting Values off SmartDashboard
 
 

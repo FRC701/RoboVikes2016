@@ -18,7 +18,7 @@ PIDSet::PIDSet(double Set, double tolerance)
 PIDSet::PIDSet(double Set)
 {
 	setPoint = Set;
-	mtolerance = 50;
+	mtolerance = 10;
 	mdelay = 1;
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);

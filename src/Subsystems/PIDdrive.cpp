@@ -40,13 +40,12 @@ double PIDdrive::ReturnPIDInput()
 	RobotMap::chassisrightMotor1->Set(-output);
 	RobotMap::chassisrightMotor2->Set(-output);
 	RobotMap::chassisrightMotor3->Set(-output);
-	RobotMap::shootershooterMotor1->Set(-output);
 
 }
 
 void PIDdrive::InitDefaultCommand()
 {
-	SetDefaultCommand(new PIDrive());
+	SetDefaultCommand(new PIDrive(0));
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 }
