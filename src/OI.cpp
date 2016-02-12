@@ -71,16 +71,16 @@ OI::OI() {
     dButtonY.reset(new JoystickButton(driver.get(), 4));
     dButtonY->WhileHeld(new AutonomousCommand());
     dButtonX.reset(new JoystickButton(driver.get(), 3));
-    dButtonX->WhileHeld(new AutonomousCommand());
+    dButtonX->WhenPressed(new TestShoot());
     dButtonB.reset(new JoystickButton(driver.get(), 2));
-    dButtonB->WhileHeld(new AutonomousCommand());
+    dButtonB->WhenPressed(new TestIntake());
     dButtonA.reset(new JoystickButton(driver.get(), 1));
-    dButtonA->WhileHeld(new AutonomousCommand());
+    dButtonA->WhenPressed(new TestChassis());
 
     // SmartDashboard Buttons
+    SmartDashboard::PutData("TestShoot", new TestShoot());
     SmartDashboard::PutData("TestIntake", new TestIntake());
     SmartDashboard::PutData("TestChassis", new TestChassis());
-    SmartDashboard::PutData("TestShoot", new TestShoot());
     SmartDashboard::PutData("ToggleShooterLifter", new ToggleShooterLifter());
     SmartDashboard::PutData("ToggleDriveShifter", new ToggleDriveShifter());
     SmartDashboard::PutData("IntakeVariablePull: off", new IntakeVariablePull(0));
