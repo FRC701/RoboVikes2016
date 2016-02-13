@@ -4,9 +4,12 @@
 #include "LiveWindow/LiveWindow.h"
 
 PIDArm::PIDArm() :
-		PIDSubsystem("PIDArm", 1.0, 0.0, 0.0)
+		PIDSubsystem("PIDArm", 0.0000650, 0.0, 0.0)
 {
+	//mcorrection = 1;
+	//correction = 1;
 	Disable();
+
 	// Use these to get going:
 	// SetSetpoint() -  Sets where the PID controller should move the system
 	//                  to
@@ -16,6 +19,10 @@ PIDArm::PIDArm() :
 double PIDArm::ReturnPIDInput()
 {
 	return RobotMap::intakeintakeMotor3->GetEncPosition();
+	//return RobotMap::intakeintakeMotor4->GetEncPosition ();
+
+
+	//return RobotMap::intakeintakeMotor4->GetEncPosition();
 	// Return your input value for the PID loop
 	// e.g. a sensor, like a potentiometer:
 	// yourPot->SetAverageVoltage() / kYourMaxVoltage;
@@ -23,7 +30,7 @@ double PIDArm::ReturnPIDInput()
 
 void PIDArm::UsePIDOutput(double output)
 {
-	if((RobotMap::intakeintakeMotor3->GetEncPosition() - RobotMap::intakeintakeMotor4->GetEncPosition()) < 0)
+	/*if((RobotMap::intakeintakeMotor3->GetEncPosition() - RobotMap::intakeintakeMotor4->GetEncPosition()) < 0)
 	{
 		correction = 2;
 	}
@@ -36,9 +43,9 @@ void PIDArm::UsePIDOutput(double output)
 		}
 		else{
 			mcorrection = 1;
-		}
-	RobotMap::intakeintakeMotor3->Set(output / mcorrection);
-	RobotMap::intakeintakeMotor4->Set(output / correction);
+		}*/
+	RobotMap::intakeintakeMotor3->Set(output);
+
 	// Use output to drive your system, like a motor
 	// e.g. yourMotor->Set(output);
 }
@@ -49,4 +56,4 @@ void PIDArm::InitDefaultCommand()
 	//setDefaultCommand(new MySpecialCommand());
 }
 
-public
+

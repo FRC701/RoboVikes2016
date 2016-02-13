@@ -15,8 +15,10 @@ PIDArmSet::PIDArmSet()
 // Called just before this Command runs the first time
 void PIDArmSet::Initialize()
 {
-Robot::pidarm->SetSetpoint(m_setpoint);
-Robot::pidarm->Enable();
+	Robot::pidarm->SetSetpoint(m_setpoint);
+	Robot::pidarm->Enable();
+	Robot::pidarml->SetSetpoint(m_setpoint);
+	Robot::pidarml->Enable();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -39,6 +41,7 @@ bool PIDArmSet::IsFinished()
 void PIDArmSet::End()
 {
 Robot::pidarm->Disable();
+Robot::pidarml->Disable();
 }
 
 // Called when another command which requires one or more of the same
@@ -46,5 +49,6 @@ Robot::pidarm->Disable();
 void PIDArmSet::Interrupted()
 {
 Robot::pidarm->Disable();
+Robot::pidarml->Disable();
 
 }
