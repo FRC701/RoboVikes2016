@@ -40,7 +40,7 @@ void ShooterRollerIntakeOn::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterRollerIntakeOn::IsFinished() {
-    return false;
+    return !RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed();
 }
 
 // Called once after isFinished returns true

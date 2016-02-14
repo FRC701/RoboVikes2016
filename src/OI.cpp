@@ -27,6 +27,9 @@
 #include "Commands/DefaultIntake.h"
 #include "Commands/FullIntake.h"
 #include "Commands/LiftShooterToggle.h"
+#include "Commands/BallIntake.h"
+#include "Commands/PrepShooter.h"
+#include "Commands/DefaultShooter.h"
 
 
 
@@ -38,8 +41,6 @@ OI::OI() {
     coDriver.reset(new Joystick(1));
     
     SmartDashboard::PutString("Co-Driver", "CoDriver");
-
-
 
     /*if(SmartDashboard::GetString("Co-Driver","CoDriver") == "Fish")
     {
@@ -98,19 +99,18 @@ OI::OI() {
 		coButtonBack.reset(new JoystickButton(coDriver.get(), 7));
 		coButtonBack->WhileHeld(new AutonomousCommand());
 		coButtonRB.reset(new JoystickButton(coDriver.get(), 6));
-		coButtonRB->WhileHeld(new IntakeArmOn(1.0));
+		coButtonRB->WhileHeld(new RollerOn(1.0));
 		coButtonLB.reset(new JoystickButton(coDriver.get(), 5));
-		coButtonLB->WhileHeld(new IntakeArmOn(-1.0));
+		coButtonLB->WhenPressed(new DefaultShooter());
 		coButtonY.reset(new JoystickButton(coDriver.get(), 4));
-		coButtonY->WhileHeld(new FullIntake(-1.0));
+		coButtonY->WhileHeld(new FullIntake(-1.0, -1.0));
 		coButtonX.reset(new JoystickButton(coDriver.get(), 3));
-		coButtonX->WhileHeld(new FullIntake(1.0));
+		coButtonX->WhenPressed(new BallIntake(1.0));
 		coButtonB.reset(new JoystickButton(coDriver.get(), 2));
-		coButtonB->WhileHeld(new RollerOn(-1.0));
+		coButtonB->WhenPressed(new PrepShooter(1.0));
 		coButtonA.reset(new JoystickButton(coDriver.get(), 1));
 		coButtonA->WhenPressed(new LiftShooterToggle());
     //}
-
 
     driver.reset(new Joystick(0));
     
@@ -129,7 +129,7 @@ OI::OI() {
     dButtonY.reset(new JoystickButton(driver.get(), 4));
     dButtonY->WhileHeld(new AutonomousCommand());
     dButtonX.reset(new JoystickButton(driver.get(), 3));
-    dButtonX->WhileHeld(new FullIntake(1.0));
+    dButtonX->WhileHeld(new FullIntake(1.0, 1.0));
     dButtonB.reset(new JoystickButton(driver.get(), 2));
     dButtonB->WhileHeld(new AutonomousCommand());
     dButtonA.reset(new JoystickButton(driver.get(), 1));

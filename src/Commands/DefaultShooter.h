@@ -9,8 +9,8 @@
 // it from being updated in the future.
 
 
-#ifndef SHOOTERCONTROL_H
-#define SHOOTERCONTROL_H
+#ifndef DEFAULTSHOOTER_H
+#define DEFAULTSHOOTER_H
 
 
 #include "Commands/Subsystem.h"

@@ -1,19 +1,17 @@
+#include "BallIntake.h"
+#include "IntakeArmLevel.h"
 #include "FullIntake.h"
-#include "ShooterRollerIntakeOn.h"
-#include "IntakeOn.h"
-#include "LiftShooterToggle.h"
+#include "SetShooter.h"
 
-FullIntake::FullIntake(double speed, double intakeSpeed)
+BallIntake::BallIntake(double speed)
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.
-	//if(RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed())
-	//{
-		AddParallel(new ShooterRollerIntakeOn(speed));
-		AddSequential(new IntakeOn(intakeSpeed));
-	//}
+	AddSequential(new IntakeArmLevel()); //TODO this command this needs to be made (this needs to be at level 2)
+	AddSequential(new SetShooter('r'));
+	AddSequential(new FullIntake(speed, 1.0));
 	// To run multiple commands at the same time,
 	// use AddParallel()
 	// e.g. AddParallel(new Command1());

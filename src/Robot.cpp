@@ -72,7 +72,7 @@ void Robot::TeleopInit() {
 		autonomousCommand->Cancel();
 	//Setting starting values of Pneumatics......................
 	RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
-	RobotMap::shooterliftShooter->Set(DoubleSolenoid::kForward);
+	RobotMap::shooterliftShooter->Set(DoubleSolenoid::kReverse);
 }
 
 void Robot::TeleopPeriodic() {

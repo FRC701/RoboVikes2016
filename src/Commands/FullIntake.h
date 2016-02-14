@@ -7,7 +7,7 @@
 class FullIntake: public CommandGroup
 {
 public:
-	FullIntake(double speed);
+	FullIntake(double speed, double intakeSpeed);
 };
 
 #endif

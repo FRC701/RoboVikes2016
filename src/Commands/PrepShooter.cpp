@@ -1,20 +1,21 @@
 #include "PrepShooter.h"
 #include "SetShooter.h"
 #include "ShooterControl.h"
+#include "IntakeArmLevel.h"
 
-PrepShooter::PrepShooter()
+PrepShooter::PrepShooter(double shooterspeed)
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.
+	AddSequential(new IntakeArmLevel());
 	AddSequential(new SetShooter('f'));
-	AddSequential(new ShooterControl(1.0));
-
+	AddSequential(new ShooterControl(shooterspeed));
 	// To run multiple commands at the same time,
 	// use AddParallel()
-	// e.g. AddParallel(new Command1());
-	//      AddSequential(new Command2());
+	// e.g.AddParallel(new Command1());
+	//     AddSequential(new Command2());
 	// Command1 and Command2 will run in parallel.
 
 	// A command group will require all of the subsystems that each member
