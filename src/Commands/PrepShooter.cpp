@@ -10,7 +10,7 @@ PrepShooter::PrepShooter(double shooterspeed)
 	//      AddSequential(new Command2());
 	// these will run in order.
 	AddSequential(new IntakeArmLevel());
-	AddSequential(new SetShooter('f'));
+	AddSequential(new SetShooter(DoubleSolenoid::kForward));
 	AddSequential(new ShooterControl(shooterspeed));
 	// To run multiple commands at the same time,
 	// use AddParallel()
