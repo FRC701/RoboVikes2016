@@ -103,11 +103,11 @@ OI::OI() {
 		coButtonLB.reset(new JoystickButton(coDriver.get(), 5));
 		coButtonLB->WhenPressed(new DefaultShooter());
 		coButtonY.reset(new JoystickButton(coDriver.get(), 4));
-		coButtonY->WhileHeld(new FullIntake(-1.0, -1.0));
+		coButtonY->WhenPressed(new PrepShooter(1.0));
 		coButtonX.reset(new JoystickButton(coDriver.get(), 3));
 		coButtonX->WhenPressed(new BallIntake(1.0));
 		coButtonB.reset(new JoystickButton(coDriver.get(), 2));
-		coButtonB->WhenPressed(new PrepShooter(1.0));
+		coButtonB->WhileHeld(new FullIntake(-1.0, -1.0));
 		coButtonA.reset(new JoystickButton(coDriver.get(), 1));
 		coButtonA->WhenPressed(new LiftShooterToggle());
     //}

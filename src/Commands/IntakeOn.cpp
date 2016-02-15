@@ -32,7 +32,7 @@ void IntakeOn::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void IntakeOn::Execute() {
 	RobotMap::intakeintakeMotor1->Set(speed);
-	RobotMap::intakeintakeMotor2->Set(speed);
+	RobotMap::intakeintakeMotor2->Set(-speed);
 
 	//static int counter = 0;
 	//std::cout << "IntakeOn::Execute: " << counter++ << std::endl;
