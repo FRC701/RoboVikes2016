@@ -10,7 +10,7 @@ BallIntake::BallIntake(double speed)
 	//      AddSequential(new Command2());
 	// these will run in order.
 	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
-	AddSequential(new SetShooter('r'));
+	AddSequential(new SetShooter(DoubleSolenoid::kReverse));
 	AddSequential(new FullIntake(speed, 1.0));
 	// To run multiple commands at the same time,
 	// use AddParallel()

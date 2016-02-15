@@ -7,14 +7,14 @@
 class SetShooter: public Command
 {
 public:
-	SetShooter(char set);
+	SetShooter(DoubleSolenoid::Value value);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
 private:
-	char mset;
+	DoubleSolenoid::Value mValue;
 };
 
 #endif

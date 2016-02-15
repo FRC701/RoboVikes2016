@@ -1,8 +1,8 @@
 #include "SetShooter.h"
 
-SetShooter::SetShooter(char set)
+SetShooter::SetShooter(DoubleSolenoid::Value value)
 {
-	mset = set;
+	mValue = value;
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 }
@@ -16,12 +16,7 @@ void SetShooter::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void SetShooter::Execute()
 {
-	if (mset == 'f')
-		RobotMap::shooterliftShooter->Set(RobotMap::shooterliftShooter->kForward);
-	else if (mset == 'r')
-		RobotMap::shooterliftShooter->Set(RobotMap::shooterliftShooter->kReverse);
-
-
+	RobotMap::shooterliftShooter->Set(mValue);
 }
 
 // Make this return true when this Command no longer needs to run execute()
