@@ -43,30 +43,28 @@ void TankDrive::Execute() {
 	RobotMap::chassisrightMotor3->Set(rY);
 
 	//Automatic Shifters
-	SmartDashboard::PutNumber("EncodeValue chassisrightmotor2", RobotMap::chassisrightMotor2->GetEncVel());
-	double shiftUpVelocity = SmartDashboard::GetNumber("UpVelocity", 1000);
+	SmartDashboard::PutNumber("EncodeValue chassisrightmotor2",
+			RobotMap::chassisrightMotor2->GetEncVel());
+	double shiftUpVelocity = SmartDashboard::GetNumber("UpVelocity", 3000);
 
-	double shiftDownVelocity = SmartDashboard::GetNumber("DownVelocity", 0);
+	double shiftDownVelocity = SmartDashboard::GetNumber("DownVelocity", 1000);
 
 	if ((RobotMap::chassisshift->Get() == DoubleSolenoid::kReverse)
 			&& (RobotMap::chassisleftMotor1->GetEncVel()
 			|| RobotMap::chassisrightMotor2->GetEncVel() >= shiftUpVelocity)
-		/* && (Robot::oi->getdriver()->GetRawAxis(1)
-				|| Robot::oi->getdriver()->GetRawAxis(5) >= .8))*/ )
+		 && (Robot::oi->getdriver()->GetRawAxis(1)
+				|| Robot::oi->getdriver()->GetRawAxis(5) >= .8) )
 	{
 		RobotMap::chassisshift->Set(DoubleSolenoid::kForward);
-		//RobotMap::chassisshiftRight->Set(DoubleSolenoid::kReverse);
 	}
 
 	if ((RobotMap::chassisshift->Get() == DoubleSolenoid::kForward)
 				&& (RobotMap::chassisleftMotor1->GetEncVel()
-				|| RobotMap::chassisrightMotor2->GetEncVel() <= shiftDownVelocity)
-				//Change || back into && when used in the robot code.
-			/*&& (Robot::oi->getdriver()->GetRawAxis(1)
-					&& Robot::oi->getdriver()->GetRawAxis(5) == 0.1)) */)
+				&& RobotMap::chassisrightMotor2->GetEncVel() <= shiftDownVelocity)
+				&& (Robot::oi->getdriver()->GetRawAxis(1)
+				&& Robot::oi->getdriver()->GetRawAxis(5) == 0.1))
 	{
 		RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
-		//RobotMap::chassisshiftRight->Set(DoubleSolenoid::kForward);
 	}
 
 }
