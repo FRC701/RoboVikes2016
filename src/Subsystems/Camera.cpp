@@ -4,7 +4,7 @@
 Camera::Camera() :
 		Subsystem("Camera")
 {
-	table = NetworkTable::GetTable("GRIP/myContoursReport");
+	table = RobotMap::cameraTable;
 }
 
 void Camera::InitDefaultCommand()
