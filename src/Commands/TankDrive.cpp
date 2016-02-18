@@ -49,20 +49,22 @@ void TankDrive::Execute() {
 
 	double shiftDownVelocity = SmartDashboard::GetNumber("DownVelocity", 1000);
 
+	const double kThrottle = 0.8;
+
 	if ((RobotMap::chassisshift->Get() == DoubleSolenoid::kReverse)
-			&& (RobotMap::chassisleftMotor1->GetEncVel()
+			&& (RobotMap::chassisleftMotor1->GetEncVel() >= shiftUpVelocity
 			|| RobotMap::chassisrightMotor2->GetEncVel() >= shiftUpVelocity)
-		 && (Robot::oi->getdriver()->GetRawAxis(1)
-				|| Robot::oi->getdriver()->GetRawAxis(5) >= .8) )
+		 && (Robot::oi->getdriver()->GetRawAxis(1) >= kThrottle
+				|| Robot::oi->getdriver()->GetRawAxis(5) >= kThrottle) )
 	{
 		RobotMap::chassisshift->Set(DoubleSolenoid::kForward);
 	}
 
 	if ((RobotMap::chassisshift->Get() == DoubleSolenoid::kForward)
-				&& (RobotMap::chassisleftMotor1->GetEncVel()
+				&& (RobotMap::chassisleftMotor1->GetEncVel() <= shiftDownVelocity
 				&& RobotMap::chassisrightMotor2->GetEncVel() <= shiftDownVelocity)
-				&& (Robot::oi->getdriver()->GetRawAxis(1)
-				&& Robot::oi->getdriver()->GetRawAxis(5) == 0.1))
+				&& (Robot::oi->getdriver()->GetRawAxis(1) <= 0.1
+				&& Robot::oi->getdriver()->GetRawAxis(5) <= 0.1))
 	{
 		RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
 	}
