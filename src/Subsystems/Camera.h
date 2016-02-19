@@ -10,7 +10,7 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 
-	static std::shared_ptr<NetworkTable> table;
+	static std::shared_ptr<NetworkTable> Table;
 public:
 	Camera();
 	void InitDefaultCommand();
