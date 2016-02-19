@@ -95,6 +95,10 @@ void Robot::TeleopPeriodic() {
 	SmartDashboard::PutNumber("Current: Intake Arm Left", RobotMap::intakeintakeMotor4->GetOutputCurrent());
 	RobotMap::lightsfeatureLights->Set(Relay::kForward);
 
+	SmartDashboard::PutNumber("Pneumatic Sensor Value 1" , RobotMap::intakeintakeMotor1->GetPulseWidthRiseToRiseUs());
+	SmartDashboard::PutNumber("Pneumatic Sensor Value 2" , RobotMap::intakeintakeMotor2->GetPulseWidthRiseToRiseUs());
+	SmartDashboard::PutNumber("Pneumatic Sensor Value 3" , RobotMap::intakeintakeMotor3->GetPulseWidthRiseToRiseUs());
+	SmartDashboard::PutNumber("Pneumatic Sensor Value 4" , RobotMap::intakeintakeMotor4->GetPulseWidthRiseToRiseUs());
 }
 
 void Robot::TestPeriodic() {
