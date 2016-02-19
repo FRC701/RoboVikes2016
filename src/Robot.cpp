@@ -74,6 +74,7 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
+	SmartDashboard::PutNumber("EncoderRyanPosition", RobotMap::intakeIntakeMotor1->GetEncPosition());
 }
 
 void Robot::TestPeriodic() {
