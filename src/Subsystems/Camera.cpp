@@ -4,7 +4,7 @@
 Camera::Camera() :
 		Subsystem("Camera")
 {
-	Table = RobotMap::cameraTable;
+	//Table = RobotMap::cameraTable;
 }
 
 void Camera::InitDefaultCommand()
