@@ -17,6 +17,7 @@ void AutoDrive::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void AutoDrive::Execute()
 {
+	//Left Side
 	RobotMap::chassisleftMotor1->Set(1.0);
 	RobotMap::chassisleftMotor2->Set(1.0);
 	RobotMap::chassisleftMotor3->Set(1.0);
@@ -31,10 +32,7 @@ void AutoDrive::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool AutoDrive::IsFinished()
 {
-	if (RobotMap::chassisleftMotor1->GetPosition() == mdistance)
-		return true;
-	else
-		return false;
+	return RobotMap::chassisleftMotor1->GetPosition() == mdistance;
 }
 
 // Called once after isFinished returns true
