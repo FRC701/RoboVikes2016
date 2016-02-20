@@ -104,9 +104,21 @@ void Robot::TeleopPeriodic() {
 	SmartDashboard::PutNumber("Test Pos", RobotMap::shooterrollerMotor->GetPosition());
 	SmartDashboard::PutNumber("Test Pulse Pos", RobotMap::shooterrollerMotor->GetPosition());
 	SmartDashboard::PutNumber("Test Enc Pos", RobotMap::shooterrollerMotor->GetEncPosition());
-	SmartDashboard::PutData("Arm Level 1", new IntakeArmLevel(1));
-	SmartDashboard::PutData("Arm Level 2", new IntakeArmLevel(2));
-	SmartDashboard::PutData("Arm Level 3", new IntakeArmLevel(3));
+
+	SmartDashboard::PutNumber("Intake Motor 3 Out Volts", RobotMap::intakeintakeMotor3->GetOutputVoltage()
+			/RobotMap::intakeintakeMotor3->GetBusVoltage());
+	SmartDashboard::PutNumber("Intake Motor 4 Out Volts", RobotMap::intakeintakeMotor4->GetOutputVoltage()
+			/RobotMap::intakeintakeMotor4->GetBusVoltage());
+
+	SmartDashboard::PutNumber("Intake Motor 3 Out Current", RobotMap::intakeintakeMotor3->GetOutputCurrent());
+	SmartDashboard::PutNumber("Intake Motor 4 Out Current", RobotMap::intakeintakeMotor4->GetOutputCurrent());
+
+	SmartDashboard::PutNumber("Intake 3 Error", RobotMap::intakeintakeMotor3->GetClosedLoopError());
+	SmartDashboard::PutNumber("Intake 4 Error", RobotMap::intakeintakeMotor4->GetClosedLoopError());
+
+	SmartDashboard::PutData("Arm Level Intake", new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
+	SmartDashboard::PutData("Arm Level Porculis", new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Portculis));
+	SmartDashboard::PutData("Arm Level Scale", new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Scale));
 
 
 

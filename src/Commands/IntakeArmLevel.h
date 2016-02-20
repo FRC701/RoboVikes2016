@@ -7,14 +7,20 @@
 class IntakeArmLevel: public Command
 {
 public:
-	IntakeArmLevel(int position);
+	enum ArmLevelPosition {
+		ArmLevelPosition_Intake = 0,
+		ArmLevelPosition_Portculis,
+		ArmLevelPosition_Scale
+	};
+	IntakeArmLevel(ArmLevelPosition position);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
 private:
-	int mposition;
+	ArmLevelPosition mposition;
+	int count;
 };
 
 #endif

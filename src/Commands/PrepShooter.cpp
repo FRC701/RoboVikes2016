@@ -9,7 +9,7 @@ PrepShooter::PrepShooter(double shooterspeed)
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.
-	//AddSequential(new IntakeArmLevel());   //TODO uncomment
+	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
 	AddSequential(new SetShooter('f'));
 	AddSequential(new ShooterControl(shooterspeed));
 	// To run multiple commands at the same time,

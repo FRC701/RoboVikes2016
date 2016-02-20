@@ -31,8 +31,6 @@ void DefaultIntake::Initialize() {
 void DefaultIntake::Execute() {
 	RobotMap::intakeintakeMotor1->Set(0.0);
 	RobotMap::intakeintakeMotor2->Set(0,0);
-	RobotMap::intakeintakeMotor3->Set(0.0);
-	RobotMap::intakeintakeMotor4->Set(0,0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
