@@ -37,7 +37,7 @@ void ShooterControl::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShooterControl::Execute() {
 	RobotMap::shootershooterMotor1->Set(speed);
-	//RobotMap::shootershooterMotor2->Set(-speed);
+	RobotMap::shootershooterMotor2->Set(-speed);
 
 	//double targetSpeed = RobotMap::shootershooterMotor1->Get() /** 6000 */;
 
@@ -51,9 +51,23 @@ void ShooterControl::Execute() {
 			<< ", err:" << RobotMap::shootershooterMotor1->GetClosedLoopError()
 			<< ", trg:" << speed;
 
+	double motorOutput2 = RobotMap::shootershooterMotor2->GetOutputVoltage() / RobotMap::shootershooterMotor2->GetBusVoltage();
+
+		static int counter2 = 0;
+		std::stringstream str2;
+		str2 << "t: " << counter2++
+				<< ", mtr:" << motorOutput
+				<< ", spd:" << RobotMap::shootershooterMotor2->GetSpeed()
+				<< ", err:" << RobotMap::shootershooterMotor2->GetClosedLoopError()
+				<< ", trg:" << speed;
+
 	SmartDashboard::PutString("TalonSpeedControl", str.str());
 
+	SmartDashboard::PutString("TalonSpeedControl", str2.str());
+
 	SmartDashboard::PutNumber("TSC-Error", RobotMap::shootershooterMotor1->GetClosedLoopError());
+	SmartDashboard::PutNumber("TSC-Error", RobotMap::shootershooterMotor2->GetClosedLoopError());
+
 
 
 }
