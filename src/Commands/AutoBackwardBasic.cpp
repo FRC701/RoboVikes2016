@@ -1,14 +1,8 @@
-#include "AutoBasic.h"
-#include "LiftShooterToggle.h"
-#include "PrepShooter.h"
-#include "RollerOn.h"
-AutoBasic::AutoBasic()
+#include "AutoBackwardBasic.h"
+//#include "PIDDrive.h"
+AutoBackwardBasic::AutoBackwardBasic()
 {
-
-	 AddSequential(new LiftShooterToggle());
-	// AddSequential(new PIDDrive(?);
-	 AddParallel(new PrepShooter());
-	 AddParallel(new RollerOn());
+	//AddSequential(new PIDDrive(-10000));
 
 
 

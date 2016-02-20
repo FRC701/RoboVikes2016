@@ -4,10 +4,10 @@
 #include "Commands/CommandGroup.h"
 #include "WPILib.h"
 
-class AutoBasic: public CommandGroup
+class AutoForwardMoatRockWall: public CommandGroup
 {
 public:
-	AutoBasic();
+	AutoForwardMoatRockWall();
 };
 
 #endif
