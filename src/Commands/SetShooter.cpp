@@ -16,13 +16,26 @@ void SetShooter::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void SetShooter::Execute()
 {
+
 	RobotMap::shooterliftShooter->Set(mValue);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool SetShooter::IsFinished()
 {
-	return true;
+
+	std::shared_ptr<CANTalon> rightSwitchTalon = RobotMap::chassisrightMotor1;
+	std::shared_ptr<CANTalon> leftSwitchTalon = RobotMap::chassisleftMotor1;
+
+	if(mValue == DoubleSolenoid::kForward)
+		return rightSwitchTalon->IsFwdLimitSwitchClosed()
+				|| leftSwitchTalon->IsFwdLimitSwitchClosed();
+	else
+		return rightSwitchTalon->IsRevLimitSwitchClosed()
+				|| leftSwitchTalon->IsRevLimitSwitchClosed();
+
+
 }
 
 // Called once after isFinished returns true

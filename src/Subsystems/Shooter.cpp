@@ -56,6 +56,9 @@ Shooter::Shooter() : Subsystem("Shooter") {
     shooterMotor2->SetPID(shooterMotor2_P , shooterMotor2_I , shooterMotor2_D , shooterMotor2_F);
     shooterMotor2->SetControlMode(CANTalon::kPercentVbus);
     shooterMotor2->Set(0.0);
+    shooterMotor2->SetInverted(true);
+
+
 }
 
 void Shooter::InitDefaultCommand() {

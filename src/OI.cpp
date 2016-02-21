@@ -30,6 +30,7 @@
 #include "Commands/BallIntake.h"
 #include "Commands/PrepShooter.h"
 #include "Commands/DefaultShooter.h"
+#include "Commands/BrakeModeToggle.h"
 
 
 
@@ -117,7 +118,7 @@ OI::OI() {
     driver.reset(new Joystick(0));
 
     dButtonR3.reset(new JoystickButton(driver.get(), 10));
-    dButtonR3->WhileHeld(new AutonomousCommand());
+    dButtonR3->WhenPressed(new BrakeModeToggle());
     dButtonL3.reset(new JoystickButton(driver.get(), 9));
     dButtonL3->WhenPressed(new ShifterToggle());
     dButtonStart.reset(new JoystickButton(driver.get(), 8));

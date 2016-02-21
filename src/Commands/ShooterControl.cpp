@@ -36,7 +36,7 @@ void ShooterControl::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShooterControl::Execute() {
 	RobotMap::shootershooterMotor1->Set(speed);
-	RobotMap::shootershooterMotor2->Set(-speed);
+	RobotMap::shootershooterMotor2->Set(speed);
 
 	//double targetSpeed = RobotMap::shootershooterMotor1->Get() /** 6000 */;
 

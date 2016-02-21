@@ -54,8 +54,8 @@ void IntakeArmLevel::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool IntakeArmLevel::IsFinished()
 {
-	if(abs(RobotMap::intakeintakeMotor3->GetClosedLoopError()) <= 10
-			|| abs(RobotMap::intakeintakeMotor3->GetClosedLoopError()) <= 10)
+	if(abs(RobotMap::intakeintakeMotor3->GetClosedLoopError()) <= 20
+			|| abs(RobotMap::intakeintakeMotor3->GetClosedLoopError()) <= 20)
 		count++;
 	else
 		count = 0;

@@ -26,6 +26,8 @@ IntakeArmOn::IntakeArmOn(double speed_): Command() {
 
 // Called just before this Command runs the first time
 void IntakeArmOn::Initialize() {
+	RobotMap::intakeintakeMotor3->SetControlMode(CANTalon::kPercentVbus);
+	RobotMap::intakeintakeMotor4->SetControlMode(CANTalon::kPercentVbus);
 
 }
 
@@ -43,10 +45,16 @@ bool IntakeArmOn::IsFinished() {
 // Called once after isFinished returns true
 void IntakeArmOn::End() {
 
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void IntakeArmOn::Interrupted() {
+	RobotMap::intakeintakeMotor3->Set(0.0);
+	RobotMap::intakeintakeMotor4->Set(0.0);
+	RobotMap::intakeintakeMotor3->SetControlMode(CANTalon::kPosition);
+	RobotMap::intakeintakeMotor4->SetControlMode(CANTalon::kPosition);
+
 
 }
