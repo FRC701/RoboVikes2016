@@ -1,13 +1,13 @@
-#ifndef lightsDefault_H
-#define lightsDefault_H
+#ifndef BrakeModeToggle_H
+#define BrakeModeToggle_H
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
-class lightsDefault: public Command
+class BrakeModeToggle: public Command
 {
 public:
-	lightsDefault();
+	BrakeModeToggle();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

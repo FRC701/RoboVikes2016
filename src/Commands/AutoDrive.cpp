@@ -1,6 +1,6 @@
 #include "AutoDrive.h"
 
-AutoDrive::AutoDrive(double distance)
+AutoDrive::AutoDrive(Distance distance)
 {
 	mdistance = distance;
 	// Use Requires() here to declare subsystem dependencies
@@ -11,22 +11,28 @@ AutoDrive::AutoDrive(double distance)
 // Called just before this Command runs the first time
 void AutoDrive::Initialize()
 {
+	RobotMap::chassisleftMotor1->SetControlMode(CANTalon::kPosition);
+	RobotMap::chassisrightMotor1->SetControlMode(CANTalon::kPosition);
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AutoDrive::Execute()
 {
-	//Left Side
-	RobotMap::chassisleftMotor1->Set(1.0);
-	RobotMap::chassisleftMotor2->Set(1.0);
-	RobotMap::chassisleftMotor3->Set(1.0);
-
-	//Right Side
-	RobotMap::chassisrightMotor1->Set(1.0);
-	RobotMap::chassisrightMotor2->Set(1.0);
-	RobotMap::chassisrightMotor3->Set(1.0);
-
+	switch (mdistance){
+	case Distance_Reach:
+		RobotMap::chassisleftMotor1->Set(0.0);
+		RobotMap::chassisrightMotor1->Set(0.0);
+		break;
+	case Distance_Cross:
+		RobotMap::chassisleftMotor1->Set(0.0);
+		RobotMap::chassisrightMotor1->Set(0.0);
+		break;
+	case Distance_Shoot:
+		RobotMap::chassisleftMotor1->Set(0.0);
+		RobotMap::chassisrightMotor1->Set(0.0);
+		break;
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -38,7 +44,8 @@ bool AutoDrive::IsFinished()
 // Called once after isFinished returns true
 void AutoDrive::End()
 {
-
+	RobotMap::chassisleftMotor1->SetControlMode(CANTalon::kPercentVbus);
+	RobotMap::chassisrightMotor1->SetControlMode(CANTalon::kPercentVbus);
 }
 
 // Called when another command which requires one or more of the same

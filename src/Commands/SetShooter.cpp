@@ -24,11 +24,9 @@ void SetShooter::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool SetShooter::IsFinished()
 {
-	std::shared_ptr<CANTalon> rightSwitchTalon = RobotMap::intakeintakeMotor3;
-	std::shared_ptr<CANTalon> leftSwitchTalon = RobotMap::intakeintakeMotor4;
-	// todo: this code is for comp bot
-	//std::shared_ptr<CANTalon> rightSwitchTalon = RobotMap::chassisrightMotor1;
-	//std::shared_ptr<CANTalon> leftSwitchTalon = RobotMap::chassisleftMotor1;
+
+	std::shared_ptr<CANTalon> rightSwitchTalon = RobotMap::chassisrightMotor1;
+	std::shared_ptr<CANTalon> leftSwitchTalon = RobotMap::chassisleftMotor1;
 
 	if(mValue == DoubleSolenoid::kForward)
 		return rightSwitchTalon->IsFwdLimitSwitchClosed()

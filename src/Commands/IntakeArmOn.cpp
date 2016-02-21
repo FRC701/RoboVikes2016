@@ -26,13 +26,20 @@ IntakeArmOn::IntakeArmOn(double speed_): Command() {
 
 // Called just before this Command runs the first time
 void IntakeArmOn::Initialize() {
+	RobotMap::intakeintakeMotor3->SetControlMode(CANTalon::kPercentVbus);
+	RobotMap::intakeintakeMotor4->SetControlMode(CANTalon::kPercentVbus);
 
 }
 
 // Called repeatedly when this Command is scheduled to run
 void IntakeArmOn::Execute() {
+	static int counter = 0;
+	counter++;
 	RobotMap::intakeintakeMotor3->Set(speed *-1);
 	RobotMap::intakeintakeMotor4->Set(speed);
+	SmartDashboard::PutNumber("Intake 3: Control Mode", RobotMap::intakeintakeMotor3->GetControlMode());
+	SmartDashboard::PutNumber("Intake 4: Control", RobotMap::intakeintakeMotor4->GetControlMode());
+	SmartDashboard::PutNumber("counter control mode", counter);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -43,10 +50,16 @@ bool IntakeArmOn::IsFinished() {
 // Called once after isFinished returns true
 void IntakeArmOn::End() {
 
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void IntakeArmOn::Interrupted() {
+	RobotMap::intakeintakeMotor3->Set(0.0);
+	RobotMap::intakeintakeMotor4->Set(0.0);
+	RobotMap::intakeintakeMotor3->SetControlMode(CANTalon::kPosition);
+	RobotMap::intakeintakeMotor4->SetControlMode(CANTalon::kPosition);
+
 
 }

@@ -55,7 +55,7 @@ void RobotMap::init() {
     chassisrightMotor3.reset(new CANTalon(6));
     lw->AddActuator("Chassis", "rightMotor3", chassisrightMotor3);
 
-    chassisshift.reset(new DoubleSolenoid(0, 3)); //TODO changed back to 0,1
+    chassisshift.reset(new DoubleSolenoid(0, 3));
     lw->AddActuator("Chassis", "shiftLeft", chassisshift);
     
     intakeintakeMotor1.reset(new CANTalon(7));
@@ -79,7 +79,7 @@ void RobotMap::init() {
     shooterrollerMotor.reset(new CANTalon(13));
     lw->AddActuator("Shooter", "rollerMotor", shooterrollerMotor);
 
-    shooterliftShooter.reset(new DoubleSolenoid(1, 2)); //TODO changed back to 2,3
+    shooterliftShooter.reset(new DoubleSolenoid(1, 2));
     lw->AddActuator("Shooter", "liftShooter", shooterliftShooter);
 
     lightsfeatureLights.reset(new Relay(0));

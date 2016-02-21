@@ -7,14 +7,19 @@
 class AutoDrive: public Command
 {
 public:
-	AutoDrive(double distance);
+	enum Distance {
+		Distance_Reach = 0,
+		Distance_Cross,
+		Distance_Shoot
+	};
+	AutoDrive(Distance distance);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
 private:
-	double mdistance;
+	Distance mdistance;
 };
 
 #endif
