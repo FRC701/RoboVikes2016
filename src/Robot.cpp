@@ -51,10 +51,6 @@ void SmartDashboard (){
 	SmartDashboard::PutNumber("IntakeMotor4 Pulse Width Pos", RobotMap::intakeintakeMotor4->GetPulseWidthPosition());
 	SmartDashboard::PutNumber("IntakeMotor3 Enc Pos", RobotMap::intakeintakeMotor3->GetEncPosition());
 	SmartDashboard::PutNumber("IntakeMotor4 Enc Pos", RobotMap::intakeintakeMotor4->GetEncPosition());
-	//Test is for the protoboard
-	SmartDashboard::PutNumber("Test Pos", RobotMap::shooterrollerMotor->GetPosition());
-	SmartDashboard::PutNumber("Test Pulse Pos", RobotMap::shooterrollerMotor->GetPosition());
-	SmartDashboard::PutNumber("Test Enc Pos", RobotMap::shooterrollerMotor->GetEncPosition());
 	//volatge of the arm motors
 	SmartDashboard::PutNumber("Intake Motor 3 Out Volts", RobotMap::intakeintakeMotor3->GetOutputVoltage()
 			/RobotMap::intakeintakeMotor3->GetBusVoltage());
@@ -63,9 +59,6 @@ void SmartDashboard (){
 	//Output current of the arms
 	SmartDashboard::PutNumber("Intake Motor 3 Out Current", RobotMap::intakeintakeMotor3->GetOutputCurrent());
 	SmartDashboard::PutNumber("Intake Motor 4 Out Current", RobotMap::intakeintakeMotor4->GetOutputCurrent());
-	//Error for the arms
-	SmartDashboard::PutNumber("Intake 3 Error", RobotMap::intakeintakeMotor3->GetClosedLoopError());
-	SmartDashboard::PutNumber("Intake 4 Error", RobotMap::intakeintakeMotor4->GetClosedLoopError());
 	//running commands and motors
 	SmartDashboard::PutData("Arm Level Intake", new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
 	SmartDashboard::PutData("Arm Level Porculis", new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Portculis));
@@ -137,9 +130,6 @@ void Robot::TeleopInit() {
 	RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
 	RobotMap::shooterliftShooter->Set(DoubleSolenoid::kReverse);
 	RobotMap::lightsfeatureLights->Set(Relay::kForward);
-
-	SmartDashboard::PutNumber("Intakeintakemotor3 control mode", RobotMap::intakeintakeMotor3->GetControlMode());
-	SmartDashboard::PutNumber("IntakeINtakeMotor4: control mode", RobotMap::intakeintakeMotor4->GetControlMode());
 }
 
 void Robot::TeleopPeriodic() {

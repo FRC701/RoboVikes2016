@@ -33,13 +33,8 @@ void IntakeArmOn::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void IntakeArmOn::Execute() {
-	static int counter = 0;
-	counter++;
 	RobotMap::intakeintakeMotor3->Set(speed *-1);
 	RobotMap::intakeintakeMotor4->Set(speed);
-	SmartDashboard::PutNumber("Intake 3: Control Mode", RobotMap::intakeintakeMotor3->GetControlMode());
-	SmartDashboard::PutNumber("Intake 4: Control", RobotMap::intakeintakeMotor4->GetControlMode());
-	SmartDashboard::PutNumber("counter control mode", counter);
 }
 
 // Make this return true when this Command no longer needs to run execute()
