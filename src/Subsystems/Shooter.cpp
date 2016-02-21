@@ -49,10 +49,10 @@ Shooter::Shooter() : Subsystem("Shooter") {
     shooterMotor2->ConfigNominalOutputVoltage(+0.0, -0.0);
     shooterMotor2->ConfigPeakOutputVoltage(+12.0,-12.0);
     shooterMotor2->SelectProfileSlot(0);
-    const double shooterMotor2_P = 0.0;
+    const double shooterMotor2_P = 0.06;
     const double shooterMotor2_I = 0.0;
     const double shooterMotor2_D = 0.0;
-    const double shooterMotor2_F = (1023/40960);
+    const double shooterMotor2_F = (1023.0/40960.0);
     shooterMotor2->SetPID(shooterMotor2_P , shooterMotor2_I , shooterMotor2_D , shooterMotor2_F);
     shooterMotor2->SetControlMode(CANTalon::kPercentVbus);
     shooterMotor2->Set(0.0);

@@ -31,7 +31,6 @@ void ShooterControl::Initialize() {
 	RobotMap::shootershooterMotor1->Set(0.0);
 	RobotMap::shootershooterMotor2->SetControlMode(CANTalon::kSpeed);
 	RobotMap::shootershooterMotor2->Set(0.0);
-
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -41,35 +40,36 @@ void ShooterControl::Execute() {
 
 	//double targetSpeed = RobotMap::shootershooterMotor1->Get() /** 6000 */;
 
-	double motorOutput = RobotMap::shootershooterMotor1->GetOutputVoltage() / RobotMap::shootershooterMotor1->GetBusVoltage();
+	double motorOutput = RobotMap::shootershooterMotor1->GetOutputVoltage()
+			/ RobotMap::shootershooterMotor1->GetBusVoltage();
 
 	static int counter = 0;
 	std::stringstream str;
-	str << "t: " << counter++
+	str << "t: " << counter
 			<< ", mtr:" << motorOutput
 			<< ", spd:" << RobotMap::shootershooterMotor1->GetSpeed()
-			<< ", err:" << RobotMap::shootershooterMotor1->GetClosedLoopError()
-			<< ", trg:" << speed;
-
-	double motorOutput2 = RobotMap::shootershooterMotor2->GetOutputVoltage() / RobotMap::shootershooterMotor2->GetBusVoltage();
-
-		static int counter2 = 0;
-		std::stringstream str2;
-		str2 << "t: " << counter2++
-				<< ", mtr:" << motorOutput
-				<< ", spd:" << RobotMap::shootershooterMotor2->GetSpeed()
-				<< ", err:" << RobotMap::shootershooterMotor2->GetClosedLoopError()
-				<< ", trg:" << speed;
-
-	SmartDashboard::PutString("TalonSpeedControl", str.str());
-
-	SmartDashboard::PutString("TalonSpeedControl", str2.str());
-
-	SmartDashboard::PutNumber("TSC-Error", RobotMap::shootershooterMotor1->GetClosedLoopError());
-	SmartDashboard::PutNumber("TSC-Error", RobotMap::shootershooterMotor2->GetClosedLoopError());
+			<< ", trg:" << speed
+			<< ", err:" << RobotMap::shootershooterMotor1->GetClosedLoopError();
 
 
+	double motorOutput2 = RobotMap::shootershooterMotor2->GetOutputVoltage()
+			/ RobotMap::shootershooterMotor2->GetBusVoltage();
 
+	std::stringstream str2;
+	str2 << "t: " << counter++
+			<< ", mtr:" << motorOutput2
+			<< ", spd:" << RobotMap::shootershooterMotor2->GetSpeed()
+			<< ", trg:" << speed
+			<< ", err:" << RobotMap::shootershooterMotor2->GetClosedLoopError();
+
+	SmartDashboard::PutString("TalonSpeedControl 1", str.str());
+	SmartDashboard::PutString("TalonSpeedControl 2", str2.str());
+
+	SmartDashboard::PutNumber("TSC-Error 1", RobotMap::shootershooterMotor1->GetClosedLoopError());
+	SmartDashboard::PutNumber("TSC Speed 1", RobotMap::shootershooterMotor1->GetSpeed());
+
+	SmartDashboard::PutNumber("TSC-Error 2", RobotMap::shootershooterMotor2->GetClosedLoopError());
+	SmartDashboard::PutNumber("TSC-Speed 2", RobotMap::shootershooterMotor2->GetSpeed());
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -105,7 +105,7 @@ OI::OI() {
 		coButtonLB.reset(new JoystickButton(coDriver.get(), 5));
 		coButtonLB->WhenPressed(new DefaultShooter());
 		coButtonY.reset(new JoystickButton(coDriver.get(), 4));
-		coButtonY->WhenPressed(new PrepShooter(6000));
+		coButtonY->WhenPressed(new PrepShooter(5500));
 		coButtonX.reset(new JoystickButton(coDriver.get(), 3));
 		coButtonX->WhenPressed(new BallIntake(1.0));
 		coButtonB.reset(new JoystickButton(coDriver.get(), 2));
