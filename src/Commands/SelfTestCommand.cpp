@@ -35,10 +35,10 @@ void SelfTestCommand::Execute()
 		RobotMap::chassisrightMotor1->Set(0.0);
 
 		RobotMap::shootershooterMotor1->Set(1.0);
-		RobotMap::shootershooterMotor1->Set(1.0);
+		RobotMap::shootershooterMotor2->Set(1.0);
 		isShooterGood = RobotMap::shootershooterMotor1->GetSpeed() > 0 && RobotMap::shootershooterMotor2->GetSpeed() < 0;
 		RobotMap::shootershooterMotor1->Set(0.0);
-		RobotMap::shootershooterMotor1->Set(0.0);
+		RobotMap::shootershooterMotor2->Set(0.0);
 
 		RobotMap::intakeintakeMotor3->Set(1.0);
 		RobotMap::intakeintakeMotor4->Set(1.0);
@@ -64,6 +64,7 @@ void SelfTestCommand::Execute()
 
 	}
 	Timer++;
+	SmartDashboard::PutNumber("Self Test: Timer", Timer);
 
 }
 
