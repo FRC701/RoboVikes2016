@@ -22,8 +22,8 @@
 
 //static const int kIntakeMotor3AbsoluteOffset = 1131; //practice bot
 //static const int kIntakeMotor4AbsoluteOffset = 2342;
-static const int kIntakeMotor3AbsoluteOffset = 1605;
-static const int kIntakeMotor4AbsoluteOffset = 1966;
+static const int kIntakeMotor3AbsoluteOffset = 1947;
+static const int kIntakeMotor4AbsoluteOffset = 5695;
 
 static const double kIntakeMotor3ForwardPositionLimit =  0.160;
 static const double kIntakeMotor3ReversePositionLimit = -0.03;
