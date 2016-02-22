@@ -19,6 +19,9 @@ private:
 	bool isArmsGood;
 	bool isShooterGood;
 	bool isShooterLift;
+	bool ShooterLiftLeft;
+	bool ShooterLiftRight;
+	int Timer;
 };
 
 #endif

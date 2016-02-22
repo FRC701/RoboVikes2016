@@ -18,6 +18,9 @@ void SelfTestCommand::Initialize()
 	isShooterGood = false;
 	isIntakeGood = false;
 	isShooterLift = false;
+	ShooterLiftLeft = false;
+	ShooterLiftRight = false;
+	Timer = 0;
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -51,30 +54,38 @@ void SelfTestCommand::Execute()
 	}
 	else
 	{
-		if (Timer == 100)
-			isShooterLift = RobotMap::chassisleftMotor1->IsFwdLimitSwitchClosed()|| RobotMap::chassisrightMotor1->IsFwdLimitSwitchClosed();
+		if (Timer == 100){
+			ShooterLiftLeft = RobotMap::chassisleftMotor1->IsFwdLimitSwitchClosed()|| RobotMap::chassisrightMotor1->IsFwdLimitSwitchClosed();
+			RobotMap::shooterliftShooter->Set(DoubleSolenoid::kReverse);
+		}
+		else if (Timer == 200)
+			ShooterLiftRight = RobotMap::chassisleftMotor1->IsRevLimitSwitchClosed()|| RobotMap::chassisrightMotor1->IsRevLimitSwitchClosed();
+		isShooterLift = ShooterLiftLeft && ShooterLiftRight;
+
 	}
+	Timer++;
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool SelfTestCommand::IsFinished()
 {
-	return Timer;
+	return Timer == 200;
 }
 
 // Called once after isFinished returns true
 void SelfTestCommand::End()
 {
 	std::stringstream message;
-	if(isChassisGood && isShooterGood && isArmsGood && isIntakeGood)
+	if(isChassisGood && isShooterGood && isArmsGood && isIntakeGood && isShooterLift)
 		message << "System is good";
 	else
 		message << "System has failed"
 			<<"Chassis status" << isChassisGood
 			<<"Shooter status" << isShooterGood
 			<<"Arms status" << isArmsGood
-			<<"Intakae status" << isIntakeGood;
+			<<"Intakae status" << isIntakeGood
+			<<"Shooter Lift statud" << isShooterLift;
 	SmartDashboard::PutString("Robot Status", message.str());
 
 	RobotMap::shootershooterMotor1->SetControlMode(CANTalon::kSpeed);
