@@ -12,6 +12,7 @@ public:
 		Distance_Cross,
 		Distance_Shoot
 	};
+	AutoDrive(double distance);
 	AutoDrive(Distance distance);
 	void Initialize();
 	void Execute();
@@ -20,6 +21,7 @@ public:
 	void Interrupted();
 private:
 	Distance mdistance;
+	double testdistance;
 };
 
 #endif

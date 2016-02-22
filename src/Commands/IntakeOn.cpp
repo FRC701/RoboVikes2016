@@ -44,7 +44,7 @@ bool IntakeOn::IsFinished() {
 	//std::cout << "IntakeOn::IsFinised: " << counter++;
 	//SmartDashboard::PutNumber("", RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed());
 
-	return !RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed();
+	return RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed();
     //return !RobotMap::shooterrollerMotor->GetForwardLimitOK();
 }
 

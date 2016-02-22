@@ -33,14 +33,14 @@ void ShooterRollerIntakeOn::Initialize() {
 void ShooterRollerIntakeOn::Execute() {
 	RobotMap::shooterrollerMotor->Set(-speed);
 	RobotMap::shootershooterMotor1->Set(-speed);
-	RobotMap::shootershooterMotor2->Set(speed);
+	RobotMap::shootershooterMotor2->Set(-speed);
 
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterRollerIntakeOn::IsFinished() {
-    return !RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed();
+    return RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed();
 }
 
 // Called once after isFinished returns true

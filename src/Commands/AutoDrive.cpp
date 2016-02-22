@@ -1,5 +1,9 @@
 #include "AutoDrive.h"
 
+AutoDrive::AutoDrive(double distance)
+{
+	testdistance = distance;
+}
 AutoDrive::AutoDrive(Distance distance)
 {
 	mdistance = distance;
@@ -19,7 +23,9 @@ void AutoDrive::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void AutoDrive::Execute()
 {
-	switch (mdistance){
+	RobotMap::chassisleftMotor1->Set(testdistance);
+	RobotMap::chassisrightMotor1->Set(testdistance);
+	/*switch (mdistance){
 	case Distance_Reach:
 		RobotMap::chassisleftMotor1->Set(0.0);
 		RobotMap::chassisrightMotor1->Set(0.0);
@@ -32,7 +38,7 @@ void AutoDrive::Execute()
 		RobotMap::chassisleftMotor1->Set(0.0);
 		RobotMap::chassisrightMotor1->Set(0.0);
 		break;
-	}
+	}*/
 }
 
 // Make this return true when this Command no longer needs to run execute()
