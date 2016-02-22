@@ -49,6 +49,7 @@ void IMU (){
 	SmartDashboard::PutNumber("IMU:Pitch", RobotMap::chassisbreakoutboard->GetPitch());
 	SmartDashboard::PutNumber("IMU:Yaw", RobotMap::chassisbreakoutboard->GetYaw());
 	SmartDashboard::PutNumber("IMU:Temperture", RobotMap::chassisbreakoutboard->GetTemperature());
+	SmartDashboard::PutData("IMU Breakoutboard", RobotMap::chassisbreakoutboard.get());
 }
 void Robot::RobotInit() {
 	RobotMap::init();
@@ -123,13 +124,6 @@ void Robot::TeleopInit() {
 	SmartDashboard::PutData("BangBangShooter", new BangBangShooter(BangBangSpeed));
 
 	//prefs
-
-
-
-
-
-
-
 }
 
 void Robot::TeleopPeriodic() {
