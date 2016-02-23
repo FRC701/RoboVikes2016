@@ -139,6 +139,10 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
 	SmartDashboard ();
+	if(RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed())
+		RobotMap::lightsshooterLight->Set(Relay::kForward);
+	else
+		RobotMap::lightsshooterLight->Set(Relay::kReverse);
 
 }
 
