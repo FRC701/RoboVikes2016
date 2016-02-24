@@ -18,12 +18,13 @@ void TestShooter::Execute()
 {
 	RobotMap::shootershooterMotor1->Set(6000);
 	RobotMap::shootershooterMotor2->Set(6000);
+	RobotMap::shooterrollerMotor->Set(1.0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool TestShooter::IsFinished()
 {
-	return RobotMap::shootershooterMotor1->GetSpeed() > 0 || RobotMap::shootershooterMotor2->GetSpeed() < 0;
+	return RobotMap::shootershooterMotor1->GetSpeed() > 0 && RobotMap::shootershooterMotor2->GetSpeed() < 0 && RobotMap::shooterrollerMotor->GetOutputCurrent() > 0;
 }
 
 // Called once after isFinished returns true

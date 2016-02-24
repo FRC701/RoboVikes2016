@@ -24,7 +24,7 @@ void TestArms::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool TestArms::IsFinished()
 {
-	return RobotMap::intakeintakeMotor3->GetSpeed() < 0 || RobotMap::intakeintakeMotor4->GetSpeed() > 0;
+	return RobotMap::intakeintakeMotor3->GetSpeed() < 0 && RobotMap::intakeintakeMotor4->GetSpeed() > 0;
 }
 
 // Called once after isFinished returns true

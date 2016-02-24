@@ -24,7 +24,7 @@ void TestChassis::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool TestChassis::IsFinished()
 {
-	return RobotMap::chassisleftMotor1->GetSpeed() > 0 || RobotMap::chassisrightMotor1->GetSpeed() < 0;
+	return RobotMap::chassisleftMotor1->GetSpeed() > 0 && RobotMap::chassisrightMotor1->GetSpeed() < 0;
 }
 
 // Called once after isFinished returns true
