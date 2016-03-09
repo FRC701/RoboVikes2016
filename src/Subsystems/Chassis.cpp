@@ -33,16 +33,24 @@ Chassis::Chassis() : Subsystem("Chassis") {
     leftMotor1->ConfigNominalOutputVoltage(+0.0f, -0.0f);
     leftMotor1->ConfigPeakOutputVoltage(+12.0f, -12.0f);
 
-    leftMotor1->SelectProfileSlot(0);
-    leftMotor1->SetPID(0.0, 0.0, 0.0, 0.0);
+    leftMotor1->SelectProfileSlot(1);
+    leftMotor1->SetPID(0.001, 0.0, 0.0, 0.0);
     leftMotor1->Set(0.0);
 
-    leftMotor1->ConfigNominalOutputVoltage(+0.0f, -0.0f);
-    leftMotor1->ConfigPeakOutputVoltage(+12.0f, -12.0f);
-
     leftMotor1->SelectProfileSlot(0);
-    leftMotor1->SetPID(0.0, 0.0, 0.0, 0.0);
+    leftMotor1->SetPID(0.5, 0.0, 0.0, 0.0);
     leftMotor1->Set(0.0);
+
+    rightMotor1->ConfigNominalOutputVoltage(+0.0f, -0.0f);
+    rightMotor1->ConfigPeakOutputVoltage(+12.0f, -12.0f);
+
+    rightMotor1->SelectProfileSlot(1);
+    rightMotor1->SetPID(0.001, 0.0, 0.0, 0.0);
+    rightMotor1->Set(0.0);
+
+    rightMotor1->SelectProfileSlot(0);
+    rightMotor1->SetPID(0.5, 0.0, 0.0, 0.0);
+    rightMotor1->Set(0.0);
 
 
     //stoping the chassis motors from reading pnumatic sensors

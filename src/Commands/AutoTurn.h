@@ -7,6 +7,11 @@
 class AutoTurn: public Command
 {
 public:
+	enum Direction {
+			turnRight = 0,
+			turnLeft
+		};
+	AutoTurn(Direction direction, int position);
 	AutoTurn(char direction, int position);
 	void Initialize();
 	void Execute();
@@ -14,8 +19,9 @@ public:
 	void End();
 	void Interrupted();
 private:
-	char mdirection;
+	Direction mdirection;
 	int mposition;
+	char mdirectionturn;
 };
 
 #endif

@@ -39,7 +39,7 @@ void ShooterControl::Execute() {
 	RobotMap::shootershooterMotor2->Set(speed);
 
 	//double targetSpeed = RobotMap::shootershooterMotor1->Get() /** 6000 */;
-
+/*
 	double motorOutput = RobotMap::shootershooterMotor1->GetOutputVoltage()
 			/ RobotMap::shootershooterMotor1->GetBusVoltage();
 
@@ -70,11 +70,12 @@ void ShooterControl::Execute() {
 
 	SmartDashboard::PutNumber("TSC-Error 2", RobotMap::shootershooterMotor2->GetClosedLoopError());
 	SmartDashboard::PutNumber("TSC-Speed 2", RobotMap::shootershooterMotor2->GetSpeed());
+*/
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool ShooterControl::IsFinished() {
-    return RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed();
+    return !RobotMap::shooterrollerMotor->IsFwdLimitSwitchClosed();
 }
 
 // Called once after isFinished returns true
@@ -83,6 +84,7 @@ void ShooterControl::End() {
 	RobotMap::shootershooterMotor1->Set(0.0);
 	RobotMap::shootershooterMotor2->SetControlMode(CANTalon::kPercentVbus);
 	RobotMap::shootershooterMotor2->Set(0.0);
+
 
 }
 

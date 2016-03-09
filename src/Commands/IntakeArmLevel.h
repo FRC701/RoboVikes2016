@@ -10,7 +10,8 @@ public:
 	enum ArmLevelPosition {
 		ArmLevelPosition_Intake = 0,
 		ArmLevelPosition_Portculis,
-		ArmLevelPosition_Scale
+		ArmLevelPosition_Scale,
+		ArmLevelPosition_LowGoal
 	};
 	IntakeArmLevel(ArmLevelPosition position);
 	void Initialize();

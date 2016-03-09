@@ -31,6 +31,7 @@ void RollerOn::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void RollerOn::Execute() {
+	RollerOn::IsFinished();
 	RobotMap::shooterrollerMotor->Set(speed);
 }
 

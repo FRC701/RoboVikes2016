@@ -1,21 +1,20 @@
-#include "PrepShooter.h"
-#include "SetShooter.h"
+#include "PopBall.h"
 #include "ShooterControl.h"
-#include "IntakeArmLevel.h"
+#include "RollerControl.h"
 
-PrepShooter::PrepShooter(double shooterspeed)
+PopBall::PopBall()
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.
-	//AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
-	AddSequential(new SetShooter(DoubleSolenoid::kForward));
-	AddSequential(new ShooterControl(shooterspeed));
+	AddSequential(new ShooterControl(5500));
+	AddSequential(new RollerControl());
+
 	// To run multiple commands at the same time,
 	// use AddParallel()
-	// e.g.AddParallel(new Command1());
-	//     AddSequential(new Command2());
+	// e.g. AddParallel(new Command1());
+	//      AddSequential(new Command2());
 	// Command1 and Command2 will run in parallel.
 
 	// A command group will require all of the subsystems that each member

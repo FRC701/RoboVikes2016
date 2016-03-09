@@ -1,21 +1,22 @@
-#include "PrepShooter.h"
-#include "SetShooter.h"
-#include "ShooterControl.h"
+#include "LowGoalShoot.h"
 #include "IntakeArmLevel.h"
+#include "ShooterControl.h"
+#include "ShooterRollerIntakeOn.h"
+#include "SetShooter.h"
 
-PrepShooter::PrepShooter(double shooterspeed)
+LowGoalShoot::LowGoalShoot()
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.
-	//AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
-	AddSequential(new SetShooter(DoubleSolenoid::kForward));
-	AddSequential(new ShooterControl(shooterspeed));
+	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_LowGoal));
+	AddSequential(new SetShooter(DoubleSolenoid::kReverse));
+	AddSequential(new ShooterControl(6000));
 	// To run multiple commands at the same time,
 	// use AddParallel()
-	// e.g.AddParallel(new Command1());
-	//     AddSequential(new Command2());
+	// e.g. AddParallel(new Command1());
+	//      AddSequential(new Command2());
 	// Command1 and Command2 will run in parallel.
 
 	// A command group will require all of the subsystems that each member
