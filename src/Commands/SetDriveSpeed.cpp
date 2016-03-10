@@ -4,7 +4,7 @@ SetDriveSpeed::SetDriveSpeed(double value , double newValue)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-
+	Requires(Robot::chassis.get());
 	mValue = value;
 	mNewValue = newValue;
 }

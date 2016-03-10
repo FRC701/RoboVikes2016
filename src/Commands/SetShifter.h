@@ -1,21 +1,20 @@
-#ifndef SetDriveSpeed_H
-#define SetDriveSpeed_H
+#ifndef SetShifter_H
+#define SetShifter_H
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
-class SetDriveSpeed: public Command
+class SetShifter: public Command
 {
 public:
-	SetDriveSpeed(double value , double newValue);
+	SetShifter(char speed);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
 private:
-	double mValue;
-	double mNewValue;
+	char mspeed;
 };
 
 #endif

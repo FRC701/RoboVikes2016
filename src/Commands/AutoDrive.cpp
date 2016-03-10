@@ -28,21 +28,21 @@ void AutoDrive::Execute()
 {
 	switch (mdistance){
 	case Distance_Reach:
-		RobotMap::chassisleftMotor1->Set(-mposition);
-		RobotMap::chassisrightMotor1->Set(mposition);
+		RobotMap::chassisleftMotor1->Set(-12819);
+		RobotMap::chassisrightMotor1->Set(12819);
 		break;
 	case Distance_Cross:
-		RobotMap::chassisleftMotor1->Set(-mposition);
-		RobotMap::chassisrightMotor1->Set(mposition);
+		RobotMap::chassisleftMotor1->Set(-44867);
+		RobotMap::chassisrightMotor1->Set(44867);
 		//enddistance = position;
 		break;
 	case Distance_Shoot:
-		RobotMap::chassisleftMotor1->Set(-mposition);
-		RobotMap::chassisrightMotor1->Set(mposition);
+		RobotMap::chassisleftMotor1->Set(-44867);
+		RobotMap::chassisrightMotor1->Set(44867);
 		break;
 	case Distance_LowBar:
-		RobotMap::chassisleftMotor1->Set(mposition);
-		RobotMap::chassisrightMotor1->Set(-mposition);
+		RobotMap::chassisleftMotor1->Set(44867);
+		RobotMap::chassisrightMotor1->Set(-44867);
 		//enddistance = -position;
 		break;
 	}
