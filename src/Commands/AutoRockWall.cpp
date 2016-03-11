@@ -2,6 +2,7 @@
 #include "SetShifter.h"
 #include "AutoDrive.h"
 #include "SetShooter.h"
+#include "PopBall.h"
 
 AutoRockWall::AutoRockWall()
 {
@@ -18,6 +19,7 @@ AutoRockWall::AutoRockWall()
 	AddSequential(new SetShifter('l'));
 	AddSequential(new SetShooter(DoubleSolenoid::kForward));
 	AddSequential(new AutoDrive(AutoDrive::Distance_Cross));
+	AddSequential(new PopBall());
 	AddSequential(new AutoDrive(AutoDrive::Distance_LowBar));
 	// A command group will require all of the subsystems that each member
 	// would require.

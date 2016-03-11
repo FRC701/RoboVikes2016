@@ -25,6 +25,7 @@ private:
 	double enddistance;
 	int mposition;
 	int counter;
+	int tolerance;
 };
 
 #endif

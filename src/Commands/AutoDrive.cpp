@@ -21,6 +21,7 @@ void AutoDrive::Initialize()
 	RobotMap::chassisleftMotor1->SetEncPosition(0.0);
 	RobotMap::chassisrightMotor1->SetEncPosition(0.0);
 	counter = 0;
+	tolerance = 10;
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -57,7 +58,7 @@ bool AutoDrive::IsFinished()
 		counter = 0;
 	if(counter == 10)
 		return true;
-	return RobotMap::chassisleftMotor1->GetPosition() == mposition;//enddistance;
+	return RobotMap::chassisleftMotor1->GetPosition() <= mposition+tolerance  && RobotMap::chassisleftMotor1->GetPosition() >= mposition-tolerance;//enddistance;
 }
 
 // Called once after isFinished returns true
