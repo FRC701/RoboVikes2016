@@ -11,7 +11,8 @@ public:
 		Distance_Reach = 0,
 		Distance_Cross,
 		Distance_Shoot,
-		Distance_LowBar
+		Distance_LowBar,
+		Distance_DoNothing
 	};
 	AutoDrive(Distance distance);
 	AutoDrive( int position);

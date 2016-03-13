@@ -1,43 +1,41 @@
-#include "SetShifter.h"
+#include "IntakeCounter.h"
 
-SetShifter::SetShifter(char speed)
+IntakeCounter::IntakeCounter(int endcounter)
 {
+	mendcounter = endcounter;
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	mspeed = speed;
-	Requires(Robot::chassis.get());
 }
 
 // Called just before this Command runs the first time
-void SetShifter::Initialize()
+void IntakeCounter::Initialize()
 {
+	mcounter = 0;
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void SetShifter::Execute()
+void IntakeCounter::Execute()
 {
-	if(mspeed == 'l')
-		RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
-	else //if(mspeed == 'h')
-		RobotMap::chassisshift->Set(DoubleSolenoid::kForward);
+	mcounter++;
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool SetShifter::IsFinished()
+bool IntakeCounter::IsFinished()
 {
-	return true;
+	return mcounter == mendcounter;
 }
 
 // Called once after isFinished returns true
-void SetShifter::End()
+void IntakeCounter::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void SetShifter::Interrupted()
+void IntakeCounter::Interrupted()
 {
 
 }

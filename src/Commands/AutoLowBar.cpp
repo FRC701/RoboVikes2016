@@ -2,6 +2,8 @@
 #include "SetShifter.h"
 #include "AutoDrive.h"
 #include "SetShooter.h"
+#include "IntakeArmLevel.h"
+#include "IntakeCounter.h"
 
 AutoLowBar::AutoLowBar()
 {
@@ -16,6 +18,8 @@ AutoLowBar::AutoLowBar()
 	//      AddSequential(new Command2());
 	// Command1 and Command2 will run in parallel.
 	AddSequential(new SetShifter('l'));
+	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
+	AddSequential(new IntakeCounter(10));
 	AddSequential(new SetShooter(DoubleSolenoid::kReverse));
 	AddSequential(new AutoDrive(AutoDrive::Distance_LowBar));
 	// A command group will require all of the subsystems that each member

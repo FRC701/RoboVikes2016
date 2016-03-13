@@ -8,6 +8,7 @@ class AutoMoat: public CommandGroup
 {
 public:
 	AutoMoat();
+
 };
 
 #endif

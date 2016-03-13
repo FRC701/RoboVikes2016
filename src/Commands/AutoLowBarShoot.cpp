@@ -1,11 +1,13 @@
-#include "AutoRockWall.h"
+#include "AutoLowBarShoot.h"
 #include "SetShifter.h"
 #include "AutoDrive.h"
 #include "SetShooter.h"
-#include "PopBall.h"
+#include "AutoTurn.h"
+#include "SpeedShooterControl.h"
+#include "RollerControl.h"
 #include "IntakeArmLevel.h"
 
-AutoRockWall::AutoRockWall()
+AutoLowBarShoot::AutoLowBarShoot()
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
@@ -18,11 +20,13 @@ AutoRockWall::AutoRockWall()
 	//      AddSequential(new Command2());
 	// Command1 and Command2 will run in parallel.
 	AddSequential(new SetShifter('l'));
-	AddSequential(new SetShooter(DoubleSolenoid::kForward));
 	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
-	AddSequential(new AutoDrive(AutoDrive::Distance_Cross));
-	AddSequential(new PopBall());
+	AddSequential(new SetShooter(DoubleSolenoid::kReverse));
 	AddSequential(new AutoDrive(AutoDrive::Distance_LowBar));
+	AddSequential(new AutoTurn('l',600));
+	AddSequential(new SpeedShooterControl(6000));
+	AddSequential(new RollerControl());
+
 	// A command group will require all of the subsystems that each member
 	// would require.
 	// e.g. if Command1 requires chassis, and Command2 requires arm,

@@ -1,5 +1,5 @@
 #include "PopBall.h"
-#include "ShooterControl.h"
+#include "SpeedShooterControl.h"
 #include "RollerControl.h"
 
 PopBall::PopBall()
@@ -8,7 +8,7 @@ PopBall::PopBall()
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
 	// these will run in order.
-	AddSequential(new ShooterControl(5500));
+	AddSequential(new SpeedShooterControl(6000));
 	AddSequential(new RollerControl());
 
 	// To run multiple commands at the same time,

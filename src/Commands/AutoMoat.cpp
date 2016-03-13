@@ -2,6 +2,7 @@
 #include "AutoDrive.h"
 #include "SetShifter.h"
 #include "SetShooter.h"
+#include "IntakeArmLevel.h"
 
 AutoMoat::AutoMoat()
 {
@@ -16,7 +17,8 @@ AutoMoat::AutoMoat()
 	//      AddSequential(new Command2());
 	// Command1 and Command2 will run in parallel.
 	AddSequential(new SetShifter('h'));
-	AddSequential(new SetShifter(DoubleSolenoid::kForward));
+	AddSequential(new SetShooter(DoubleSolenoid::kForward));
+	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_LowGoal));
 	AddSequential(new AutoDrive(AutoDrive::Distance_Cross));
 	// A command group will require all of the subsystems that each member
 	// would require.

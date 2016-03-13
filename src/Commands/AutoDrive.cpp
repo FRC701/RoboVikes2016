@@ -7,6 +7,7 @@ AutoDrive::AutoDrive(Distance distance)
 	// eg. Requires(chassis);
 	Requires(Robot::chassis.get());
 }
+
 AutoDrive::AutoDrive(int position)
 {
 	mposition = position;
@@ -31,21 +32,27 @@ void AutoDrive::Execute()
 	case Distance_Reach:
 		RobotMap::chassisleftMotor1->Set(-12819);
 		RobotMap::chassisrightMotor1->Set(12819);
+		mposition = 12819;
 		break;
 	case Distance_Cross:
 		RobotMap::chassisleftMotor1->Set(-44867);
 		RobotMap::chassisrightMotor1->Set(44867);
-		//enddistance = position;
+		mposition = 44867;
 		break;
 	case Distance_Shoot:
 		RobotMap::chassisleftMotor1->Set(-44867);
 		RobotMap::chassisrightMotor1->Set(44867);
+		mposition = 44867;
 		break;
 	case Distance_LowBar:
 		RobotMap::chassisleftMotor1->Set(44867);
 		RobotMap::chassisrightMotor1->Set(-44867);
-		//enddistance = -position;
+		mposition = -44867;
 		break;
+	case Distance_DoNothing:
+		RobotMap::chassisleftMotor1->Set(0);
+		RobotMap::chassisrightMotor1->Set(0);
+		mposition = 0;
 	}
 }
 
@@ -58,6 +65,7 @@ bool AutoDrive::IsFinished()
 		counter = 0;
 	if(counter == 10)
 		return true;
+
 	return RobotMap::chassisleftMotor1->GetPosition() <= mposition+tolerance  && RobotMap::chassisleftMotor1->GetPosition() >= mposition-tolerance;//enddistance;
 }
 
