@@ -39,7 +39,7 @@ void ShooterControl::Execute() {
 	RobotMap::shootershooterMotor2->Set(speed);
 
 	//double targetSpeed = RobotMap::shootershooterMotor1->Get() /** 6000 */;
-/*
+
 	double motorOutput = RobotMap::shootershooterMotor1->GetOutputVoltage()
 			/ RobotMap::shootershooterMotor1->GetBusVoltage();
 
@@ -70,7 +70,7 @@ void ShooterControl::Execute() {
 
 	SmartDashboard::PutNumber("TSC-Error 2", RobotMap::shootershooterMotor2->GetClosedLoopError());
 	SmartDashboard::PutNumber("TSC-Speed 2", RobotMap::shootershooterMotor2->GetSpeed());
-*/
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -46,9 +46,17 @@ void IntakeArmLevel::Execute()
 		RobotMap::intakeintakeMotor3->SelectProfileSlot(0);
 		RobotMap::intakeintakeMotor4->SelectProfileSlot(0);
 
+		RobotMap::intakeintakeMotor3->Set(0.151);
+		RobotMap::intakeintakeMotor4->Set(-0.153);
+		break;
+	case ArmLevelPosition_Moat:
+		RobotMap::intakeintakeMotor3->SelectProfileSlot(0);
+		RobotMap::intakeintakeMotor4->SelectProfileSlot(0);
+
 		RobotMap::intakeintakeMotor3->Set(0.08);
 		RobotMap::intakeintakeMotor4->Set(-0.08);
 		break;
+
 	}
 
 	static int counter = 0;

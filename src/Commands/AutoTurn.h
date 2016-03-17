@@ -22,6 +22,7 @@ private:
 	Direction mdirection;
 	int mposition;
 	char mdirectionturn;
+	int tolerance;
 };
 
 #endif

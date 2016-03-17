@@ -25,6 +25,7 @@ void AutoTurn::Initialize()
 	//Setting the Moters to Postion Mode
 	RobotMap::chassisleftMotor1->SetControlMode(CANTalon::kPosition);
 	RobotMap::chassisrightMotor1->SetControlMode(CANTalon::kPosition);
+	tolerance = 10;
 
 }
 
@@ -61,12 +62,18 @@ void AutoTurn::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool AutoTurn::IsFinished()
 {
-	return RobotMap::chassisleftMotor1->GetPosition() == mposition;
+	return RobotMap::chassisrightMotor1->GetPosition() <= mposition + tolerance
+				&& RobotMap::chassisrightMotor1->GetPosition() >= mposition - tolerance;
 }
 
 // Called once after isFinished returns true
 void AutoTurn::End()
 {
+	RobotMap::chassisleftMotor1->SetControlMode(CANTalon::kPercentVbus);
+	RobotMap::chassisleftMotor1->Set(0);
+
+	RobotMap::chassisrightMotor1->SetControlMode(CANTalon::kPercentVbus);
+	RobotMap::chassisrightMotor1->Set(0);
 
 }
 
@@ -74,5 +81,6 @@ void AutoTurn::End()
 // subsystems is scheduled to run
 void AutoTurn::Interrupted()
 {
+	AutoTurn::End();
 
 }

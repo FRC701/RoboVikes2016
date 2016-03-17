@@ -11,7 +11,8 @@ public:
 		ArmLevelPosition_Intake = 0,
 		ArmLevelPosition_Portculis,
 		ArmLevelPosition_Scale,
-		ArmLevelPosition_LowGoal
+		ArmLevelPosition_LowGoal,
+		ArmLevelPosition_Moat
 	};
 	IntakeArmLevel(ArmLevelPosition position);
 	void Initialize();

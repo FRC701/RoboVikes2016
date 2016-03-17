@@ -15,7 +15,6 @@ public:
 		Distance_DoNothing
 	};
 	AutoDrive(Distance distance);
-	AutoDrive( int position);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -23,7 +22,6 @@ public:
 	void Interrupted();
 private:
 	Distance mdistance;
-	double enddistance;
 	int mposition;
 	int counter;
 	int tolerance;

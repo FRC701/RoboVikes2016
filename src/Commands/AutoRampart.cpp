@@ -18,7 +18,7 @@ AutoRampart::AutoRampart()
 	// Command1 and Command2 will run in parallel.
 	AddSequential(new SetShifter('l'));
 	AddSequential(new SetShooter(DoubleSolenoid::kForward));
-	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_LowGoal));
+	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Moat));
 
 	AddSequential(new AutoDrive(AutoDrive::Distance_Cross));
 	// A command group will require all of the subsystems that each member
