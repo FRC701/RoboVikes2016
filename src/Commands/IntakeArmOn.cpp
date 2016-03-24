@@ -56,5 +56,9 @@ void IntakeArmOn::Interrupted() {
 	RobotMap::intakeintakeMotor3->SetControlMode(CANTalon::kPosition);
 	RobotMap::intakeintakeMotor4->SetControlMode(CANTalon::kPosition);
 
+	//Set to the position it is at
+	RobotMap::intakeintakeMotor3->Set(RobotMap::intakeintakeMotor3->GetPosition());
+	RobotMap::intakeintakeMotor4->Set(RobotMap::intakeintakeMotor4->GetPosition());
+
 
 }

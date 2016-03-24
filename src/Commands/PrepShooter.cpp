@@ -2,8 +2,9 @@
 #include "SetShooter.h"
 #include "ShooterControl.h"
 #include "IntakeArmLevel.h"
+#include "Robot.h"
 
-PrepShooter::PrepShooter(double shooterspeed)
+PrepShooter::PrepShooter()
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
@@ -11,7 +12,7 @@ PrepShooter::PrepShooter(double shooterspeed)
 	// these will run in order.
 	//AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
 	AddSequential(new SetShooter(DoubleSolenoid::kForward));
-	AddSequential(new ShooterControl(shooterspeed));
+	AddSequential(new ShooterControl(Robot::shooter->getPrepShooterSpeed()));
 	// To run multiple commands at the same time,
 	// use AddParallel()
 	// e.g.AddParallel(new Command1());

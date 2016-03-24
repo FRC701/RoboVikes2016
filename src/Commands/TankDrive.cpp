@@ -32,6 +32,8 @@ void TankDrive::Initialize() {
 void TankDrive::Execute() {
   int lY = Robot::oi->getdriver()->GetRawAxis(1);
 	int rY = Robot::oi->getdriver()->GetRawAxis(5) *-1;
+
+
 	//Left Side
 	RobotMap::chassisleftMotor1->Set(lY);
 

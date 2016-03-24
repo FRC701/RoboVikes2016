@@ -12,7 +12,6 @@ public:
 			turnLeft
 		};
 	AutoTurn(Direction direction, int position);
-	AutoTurn(char direction, int position);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -21,7 +20,6 @@ public:
 private:
 	Direction mdirection;
 	int mposition;
-	char mdirectionturn;
 	int tolerance;
 };
 

@@ -7,7 +7,7 @@
 class PrepShooter: public CommandGroup
 {
 public:
-	PrepShooter(double shooterspeed);
+	PrepShooter();
 };
 
 #endif

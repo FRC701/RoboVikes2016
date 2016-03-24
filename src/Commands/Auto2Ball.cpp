@@ -27,20 +27,20 @@ Auto2Ball::Auto2Ball()
 
 	//Drive and Turn into position
 	AddSequential(new AutoDrive(AutoDrive::Distance_LowBar));
-	AddSequential(new AutoTurn('l',600));
+	AddSequential(new AutoTurn(AutoTurn::turnLeft,600));
 
 	//Shoot Ball
 	AddSequential(new SpeedShooterControl(6000));
 	AddSequential(new RollerControl());
 
 	//Realign and cross back
-	AddSequential(new AutoTurn('r', 600));
+	AddSequential(new AutoTurn(AutoTurn::turnRight, 600));
 	AddSequential(new AutoDrive(AutoDrive::Distance_Cross));
 
 	//Intake Ball and drive back
 	AddSequential(new FullIntake(1.0,1.0));
 	AddSequential(new AutoDrive(AutoDrive::Distance_LowBar));
-	AddSequential(new AutoTurn('l',600));
+	AddSequential(new AutoTurn(AutoTurn::turnLeft,600));
 
 	//Shoot
 	AddSequential(new SpeedShooterControl(6000));

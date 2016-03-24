@@ -23,7 +23,7 @@ AutoLowBarShoot::AutoLowBarShoot()
 	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
 	AddSequential(new SetShooter(DoubleSolenoid::kReverse));
 	AddSequential(new AutoDrive(AutoDrive::Distance_LowBar));
-	AddSequential(new AutoTurn('l',600));
+	AddSequential(new AutoTurn(AutoTurn::turnLeft,600));
 	AddSequential(new SpeedShooterControl(6000));
 	AddSequential(new RollerControl());
 
