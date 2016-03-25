@@ -34,8 +34,8 @@ void ShooterVariableControl::Initialize() {
 void ShooterVariableControl::Execute() {
     RobotMap::shooterRollerMotor->Set(m_roller_voltage);
 
-    RobotMap::shooterShooterMotor1->Set(m_shooter_voltage);
-    RobotMap::shooterShooterMotor2->Set(m_shooter_voltage);
+    RobotMap::shooterMotor1->Set(m_shooter_voltage);
+    RobotMap::shooterMotor2->Set(m_shooter_voltage);
 }
 
 // Make this return true when this Command no longer needs to run execute()

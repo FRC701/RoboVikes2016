@@ -32,8 +32,8 @@ void DefaultShooter::Initialize() {
 void DefaultShooter::Execute() {
     RobotMap::shooterRollerMotor->Set(0.0);
 
-    RobotMap::shooterShooterMotor1->Set(0.0);
-    RobotMap::shooterShooterMotor2->Set(0.0);
+    RobotMap::shooterMotor1->Set(0.0);
+    RobotMap::shooterMotor2->Set(0.0);
 
     WarmUpShoot();
 
@@ -73,8 +73,8 @@ void DefaultShooter::WarmUpShoot(){
      if(Robot::oi->getdriver()->GetRawButton(1) && warmUpCounter > 20) {      //Detect we want to stop shooting
          RobotMap::shooterRollerMotor->Set(0.0);
 
-         RobotMap::shooterShooterMotor1->Set(0.0);
-         RobotMap::shooterShooterMotor2->Set(0.0);
+         RobotMap::shooterMotor1->Set(0.0);
+         RobotMap::shooterMotor2->Set(0.0);
 
          warmUpCounter = 0;
          shootCounter = 0;
@@ -91,8 +91,8 @@ void DefaultShooter::WarmUpShoot(){
      }
 
      if(startWarmUpCounter){                                                 //Start warming up shooter for x loops
-         RobotMap::shooterShooterMotor1->Set(1.0);
-         RobotMap::shooterShooterMotor2->Set(1.0);
+         RobotMap::shooterMotor1->Set(1.0);
+         RobotMap::shooterMotor2->Set(1.0);
          warmUpCounter++;
      }
 
@@ -102,8 +102,8 @@ void DefaultShooter::WarmUpShoot(){
      if(shootCounter > 50){                                                  //After x loops of being shot reset everything
          RobotMap::shooterRollerMotor->Set(0.0);
 
-         RobotMap::shooterShooterMotor1->Set(0.0);
-         RobotMap::shooterShooterMotor2->Set(0.0);
+         RobotMap::shooterMotor1->Set(0.0);
+         RobotMap::shooterMotor2->Set(0.0);
 
          warmUpCounter = 0;
          shootCounter = 0;

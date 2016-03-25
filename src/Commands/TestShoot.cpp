@@ -30,6 +30,9 @@ void TestShoot::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TestShoot::Execute() {
+    RobotMap::shooterMotor1->Set(Preferences::GetInstance()->GetDouble("shooterSpeed"), 0.0);
+    SmartDashboard::PutNumber("ShooterMotor1Currnet", RobotMap::shooterMotor1->GetOutputCurrent());
+    SmartDashboard::PutNumber(" ", RobotMap::shooterMotor1->GetOutputVoltage());
 
 }
 

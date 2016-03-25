@@ -31,8 +31,8 @@ void IntakeVariablePull::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void IntakeVariablePull::Execute() {
-    RobotMap::intakeIntakeMotor1->Set(m_pull_voltage);
-    RobotMap::intakeIntakeMotor2->Set(m_pull_voltage);
+    RobotMap::intakeMotor1->Set(m_pull_voltage);
+    RobotMap::intakeMotor2->Set(m_pull_voltage);
 }
 
 // Make this return true when this Command no longer needs to run execute()
