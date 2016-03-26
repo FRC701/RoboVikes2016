@@ -19,8 +19,11 @@ void CameraControl::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void CameraControl::Execute()
 {
+	///*
 	std::vector<double> arr = table->GetNumberArray("area", llvm::ArrayRef<double>());
 	SmartDashboard::PutNumber("Area" , arr[0]);
+
+
 
 	std::vector<double> arx = table->GetNumberArray("centerX", llvm::ArrayRef<double>());
 	for (unsigned int x = 0; x < arx.size();
@@ -48,6 +51,7 @@ void CameraControl::Execute()
 	{
 
 	}
+	//*/
 }
 
 // Make this return true when this Command no longer needs to run execute()
