@@ -12,7 +12,8 @@ public:
 		Distance_Cross,
 		Distance_Shoot,
 		Distance_LowBar,
-		Distance_DoNothing
+		Distance_DoNothing,
+		Distance_Cheval_Cross
 	};
 	AutoDrive(Distance distance);
 	void Initialize();

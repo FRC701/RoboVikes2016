@@ -17,6 +17,9 @@ int getPosition(AutoDrive::Distance distance) {
 	case AutoDrive::Distance_LowBar:
 		position = -44867;
 		break;
+	case AutoDrive::Distance_Cheval_Cross:
+		position = (44867 - 12819);
+		break;
 	case AutoDrive::Distance_DoNothing:
 	default:
 		position = 0;
