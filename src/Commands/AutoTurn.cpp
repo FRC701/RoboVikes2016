@@ -2,6 +2,7 @@
 
 static int getDirection(AutoTurn::Direction direction) {
 	int posdirection = 0;
+
 	switch (direction) {
 	case AutoTurn::turnLeft:
 		posdirection = -1;
@@ -9,9 +10,9 @@ static int getDirection(AutoTurn::Direction direction) {
 	case AutoTurn::turnRight:
 		posdirection = 1;
 		break;
+	}
 
 	return posdirection;
-	}
 }
 
 AutoTurn::AutoTurn(Direction direction, int position)

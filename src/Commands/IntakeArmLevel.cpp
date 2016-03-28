@@ -1,10 +1,11 @@
 #include "IntakeArmLevel.h"
 
 IntakeArmLevel::IntakeArmLevel(ArmLevelPosition position)
+: mposition(position),
+  count(0)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	mposition = position;
 	Requires(Robot::intake.get());
 }
 

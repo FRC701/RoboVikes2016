@@ -1,6 +1,14 @@
 #include "SelfTestCommand.h"
 
 SelfTestCommand::SelfTestCommand()
+: isChassisGood(false),
+  isIntakeGood(false),
+  isArmsGood(false),
+  isShooterGood(false),
+  isShooterLift(false),
+  ShooterLiftLeft(false),
+  ShooterLiftRight(false),
+  Timer(0)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);

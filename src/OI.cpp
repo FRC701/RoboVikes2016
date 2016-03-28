@@ -98,9 +98,9 @@ OI::OI() {
     	count++;
     }*/
 		coButtonR3.reset(new JoystickButton(coDriver.get(), 10));
-		coButtonR3->WhenPressed(new DefaultShooter());
+		coButtonR3->WhenPressed(new LowGoalShoot());
 		coButtonL3.reset(new JoystickButton(coDriver.get(), 9));
-		coButtonL3->WhenPressed(new LowGoalShoot());
+		coButtonL3->WhenPressed(new DefaultShooter());
 		coButtonStart.reset(new JoystickButton(coDriver.get(), 8));
 		coButtonStart->WhileHeld(new RollerOn(1.0));
 		coButtonBack.reset(new JoystickButton(coDriver.get(), 7));
@@ -108,7 +108,7 @@ OI::OI() {
 		coButtonRB.reset(new JoystickButton(coDriver.get(), 6));
 		coButtonRB->WhileHeld(new IntakeArmOn(0.75));
 		coButtonLB.reset(new JoystickButton(coDriver.get(), 5));
-		coButtonLB->WhileHeld(new IntakeArmOn(-0.75));
+		coButtonLB->WhileHeld(new IntakeArmOn(-0.3));
 		coButtonY.reset(new JoystickButton(coDriver.get(), 4));
 		coButtonY->WhenPressed(new PrepShooter());
 		coButtonX.reset(new JoystickButton(coDriver.get(), 3));

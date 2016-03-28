@@ -65,6 +65,10 @@ bool AutoDrive::IsFinished()
 	if(counter == 10)
 		return true;
 
+	if (	(abs(RobotMap::chassisleftMotor1->GetEncPosition()) > abs(RobotMap::chassisrightMotor1->GetEncPosition()) + 500) ||
+			(abs(RobotMap::chassisrightMotor1->GetEncPosition()) > abs(RobotMap::chassisleftMotor1->GetEncPosition()) + 500)	)
+		return true;
+
 	return RobotMap::chassisrightMotor1->GetPosition() <= mposition + tolerance
 			&& RobotMap::chassisrightMotor1->GetPosition() >= mposition - tolerance;
 }

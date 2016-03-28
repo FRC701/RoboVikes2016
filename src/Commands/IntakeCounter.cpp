@@ -1,6 +1,7 @@
 #include "IntakeCounter.h"
 
 IntakeCounter::IntakeCounter(int endcounter)
+: mcounter(0)
 {
 	mendcounter = endcounter;
 	// Use Requires() here to declare subsystem dependencies
