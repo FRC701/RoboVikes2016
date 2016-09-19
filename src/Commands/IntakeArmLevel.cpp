@@ -68,11 +68,12 @@ void IntakeArmLevel::Execute()
 
 	}
 
+	/*
 	static int counter = 0;
 	std::stringstream str;
 		str << "t: " << counter++;
 	SmartDashboard::PutString("Count",str.str());
-
+	*/
 }
 
 // Make this return true when this Command no longer needs to run execute()

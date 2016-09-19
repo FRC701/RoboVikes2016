@@ -11,6 +11,9 @@
 
 #include "Robot.h"
 #include "SmartDashboard/SmartDashboard.h"
+
+#include "Subsystems/Shooter.h"
+
 #include "Commands/AutoDrive.h"
 #include "Commands/IntakeArmLevel.h"
 #include "Commands/IntakeOn.h"
@@ -217,8 +220,7 @@ void Robot::TeleopInit() {
 
 }
 
-static
-void nudgeShooter(std::shared_ptr<Shooter> shooter) {
+void Robot::nudgeShooter() {
 	int prepShooterSpeed = shooter->getPrepShooterSpeed();
 	if (Robot::oi->getcoDriver()->GetPOV(0) == 0)
     	prepShooterSpeed += 5;
@@ -246,7 +248,7 @@ void Robot::TeleopPeriodic() {
 	else
 		RobotMap::lightsshooterLight->Set(Relay::kReverse);
 
-	nudgeShooter(shooter);
+	nudgeShooter();
 }
 
 void Robot::TestPeriodic() {
