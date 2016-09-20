@@ -30,6 +30,7 @@ public:
 	static std::shared_ptr<CANTalon> chassisrightMotor2;
 	static std::shared_ptr<CANTalon> chassisrightMotor3;
 	static std::shared_ptr<DoubleSolenoid> chassisshift;
+	static std::shared_ptr<DoubleSolenoid> chassiskickstand;
 	static std::shared_ptr<CANTalon> intakeintakeMotor1;
 	static std::shared_ptr<CANTalon> intakeintakeMotor2;
 	static std::shared_ptr<CANTalon> intakeintakeMotor3;

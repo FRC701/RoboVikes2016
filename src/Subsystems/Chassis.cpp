@@ -28,7 +28,10 @@ Chassis::Chassis() : Subsystem("Chassis") {
     rightMotor1 = RobotMap::chassisrightMotor1;
     rightMotor2 = RobotMap::chassisrightMotor2;
     rightMotor3 = RobotMap::chassisrightMotor3;
+
     shift = RobotMap::chassisshift;
+    kickstand = RobotMap::chassiskickstand;
+
     //Chassis 1 and 2 initialization
     leftMotor1->ConfigNominalOutputVoltage(+0.0f, -0.0f);
     leftMotor1->ConfigPeakOutputVoltage(+12.0f, -12.0f);

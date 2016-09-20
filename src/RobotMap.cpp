@@ -22,6 +22,7 @@ std::shared_ptr<CANTalon> RobotMap::chassisrightMotor1;
 std::shared_ptr<CANTalon> RobotMap::chassisrightMotor2;
 std::shared_ptr<CANTalon> RobotMap::chassisrightMotor3;
 std::shared_ptr<DoubleSolenoid> RobotMap::chassisshift;
+std::shared_ptr<DoubleSolenoid> RobotMap::chassiskickstand;
 std::shared_ptr<CANTalon> RobotMap::intakeintakeMotor1;
 std::shared_ptr<CANTalon> RobotMap::intakeintakeMotor2;
 std::shared_ptr<CANTalon> RobotMap::intakeintakeMotor3;
@@ -59,18 +60,24 @@ void RobotMap::init() {
     chassisshift.reset(new DoubleSolenoid(0, 3));
     lw->AddActuator("Chassis", "shiftLeft", chassisshift);
     
+    chassiskickstand.reset(new DoubleSolenoid(4, 5));
+    lw->AddActuator("Chassis", "kickstand", chassiskickstand);
+
     intakeintakeMotor1.reset(new CANTalon(7));
     lw->AddActuator("Intake", "intakeMotor1", intakeintakeMotor1);
     
     intakeintakeMotor2.reset(new CANTalon(8));
     lw->AddActuator("Intake", "intakeMotor2", intakeintakeMotor2);
     
-    intakeintakeMotor3.reset(new CANTalon(9));
+    // Arm Motors...
+    intakeintakeMotor3.reset(new CANTalon(20));
     lw->AddActuator("Intake", "intakeMotor3", intakeintakeMotor3);
     
-    intakeintakeMotor4.reset(new CANTalon(10));
+    intakeintakeMotor4.reset(new CANTalon(21));
     lw->AddActuator("Intake", "intakeMotor4", intakeintakeMotor4);
     
+
+
     shootershooterMotor1.reset(new CANTalon(11));
     lw->AddActuator("Shooter", "shooterMotor1", shootershooterMotor1);
     
