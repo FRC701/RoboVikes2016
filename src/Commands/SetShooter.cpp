@@ -1,10 +1,12 @@
 #include "SetShooter.h"
+#include "../Robot.h"
 
 SetShooter::SetShooter(DoubleSolenoid::Value value)
 {
 	mValue = value;
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	Requires(Robot::shooter.get());
 }
 
 // Called just before this Command runs the first time
@@ -25,12 +27,12 @@ void SetShooter::Execute()
 bool SetShooter::IsFinished()
 {
 
-	std::shared_ptr<CANTalon> rightSwitchTalon = RobotMap::chassisrightMotor1;
-	std::shared_ptr<CANTalon> leftSwitchTalon = RobotMap::chassisleftMotor1;
-
+	std::shared_ptr<CANTalon> rightSwitchTalon = RobotMap::chassisrightMotor1;		//Unnecessary variable used to clarify intent
+	std::shared_ptr<CANTalon> leftSwitchTalon = RobotMap::chassisleftMotor1;		//	Use for meanwhile till code works, then
+																					//	can change it if you wish
 	if(mValue == DoubleSolenoid::kForward)
-		return rightSwitchTalon->IsFwdLimitSwitchClosed()
-				|| leftSwitchTalon->IsFwdLimitSwitchClosed();
+		return rightSwitchTalon->IsFwdLimitSwitchClosed()							//Used as a double test to make sure it is at
+				|| leftSwitchTalon->IsFwdLimitSwitchClosed();						//	desired state
 	else
 		return rightSwitchTalon->IsRevLimitSwitchClosed()
 				|| leftSwitchTalon->IsRevLimitSwitchClosed();

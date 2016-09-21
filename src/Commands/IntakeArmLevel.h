@@ -8,7 +8,7 @@ class IntakeArmLevel: public Command
 {
 public:
 	enum ArmLevelPosition {
-		ArmLevelPosition_Intake = 0,
+		ArmLevelPosition_Intake,
 		ArmLevelPosition_Portculis,
 		ArmLevelPosition_Scale,
 		ArmLevelPosition_LowGoal,

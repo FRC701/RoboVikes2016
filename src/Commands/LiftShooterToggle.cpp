@@ -19,8 +19,7 @@ void LiftShooterToggle::Execute()
 	{
 		RobotMap::shooterliftShooter->Set(DoubleSolenoid::kReverse);
 	}
-	//Low Speed Transmission
-	else if(RobotMap::shooterliftShooter->Get() == DoubleSolenoid::kReverse)
+	else
 	{
 		RobotMap::shooterliftShooter->Set(DoubleSolenoid::kForward);
 	}

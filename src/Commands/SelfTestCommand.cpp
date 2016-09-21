@@ -1,4 +1,5 @@
 #include "SelfTestCommand.h"
+#include "../Robot.h"
 
 SelfTestCommand::SelfTestCommand()
 : isChassisGood(false),
@@ -12,6 +13,10 @@ SelfTestCommand::SelfTestCommand()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	Requires(Robot::intake.get());
+	Requires(Robot::shooter.get());
+	Requires(Robot::chassis.get());
+
 }
 
 // Called just before this Command runs the first time
@@ -88,13 +93,15 @@ void SelfTestCommand::End()
 	std::stringstream message;
 	if(isChassisGood && isShooterGood && isArmsGood && isIntakeGood && isShooterLift)
 		message << "System is good";
-	else
+	else{
 		message << "System has failed"
 			<<"Chassis status" << isChassisGood
 			<<"Shooter status" << isShooterGood
 			<<"Arms status" << isArmsGood
 			<<"Intakae status" << isIntakeGood
 			<<"Shooter Lift statud" << isShooterLift;
+	}
+
 	SmartDashboard::PutString("Robot Status", message.str());
 
 	RobotMap::shootershooterMotor1->SetControlMode(CANTalon::kSpeed);

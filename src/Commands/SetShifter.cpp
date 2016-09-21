@@ -19,8 +19,10 @@ void SetShifter::Execute()
 {
 	if(mspeed == 'l')
 		RobotMap::chassisshift->Set(DoubleSolenoid::kReverse);
-	else //if(mspeed == 'h')
+	else if(mspeed == 'h')
 		RobotMap::chassisshift->Set(DoubleSolenoid::kForward);
+	else															//This would be when you want to default
+		RobotMap::chassisshift->Set(DoubleSolenoid::kForward);		//High for now, recommend enum
 }
 
 // Make this return true when this Command no longer needs to run execute()

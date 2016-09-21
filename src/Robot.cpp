@@ -51,7 +51,7 @@ std::shared_ptr<SendableChooser> Robot::chooser;
  *
  * These items only need to be added to the smartdashboard once.
  */
-static
+
 void SmartDashboardInit() {
 	//Test
 	//SmartDashboard::PutData("AutoDrive", new AutoDrive(Preferences::GetInstance()->GetInt("Auto Drive Distance", 0)));
@@ -115,8 +115,7 @@ void SmartDashboardPeriodic () {
 	SmartDashboard::PutNumber("Intake Motor 3 Out Current", RobotMap::intakeintakeMotor3->GetOutputCurrent());
 	SmartDashboard::PutNumber("Intake Motor 4 Out Current", RobotMap::intakeintakeMotor4->GetOutputCurrent());
 
-*/
-/*
+
 	//encoder position for the motors
 	SmartDashboard::PutNumber("Left Encoder", RobotMap::chassisleftMotor1->GetPosition());
 	SmartDashboard::PutNumber("Right Encoder", RobotMap::chassisrightMotor1->GetPosition());
@@ -222,6 +221,7 @@ void Robot::TeleopInit() {
 
 void Robot::nudgeShooter() {
 	int prepShooterSpeed = shooter->getPrepShooterSpeed();
+
 	if (Robot::oi->getcoDriver()->GetPOV(0) == 0)
     	prepShooterSpeed += 5;
     else if(Robot::oi->getcoDriver()->GetPOV(0) == 90)

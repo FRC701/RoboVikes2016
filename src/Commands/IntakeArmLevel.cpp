@@ -33,29 +33,29 @@ void IntakeArmLevel::Execute()
 	case ArmLevelPosition_Portculis:
 		RobotMap::intakeintakeMotor3->SelectProfileSlot(1);
 		RobotMap::intakeintakeMotor4->SelectProfileSlot(1);
-		RobotMap::intakeintakeMotor3->Set(-0.026);
-		RobotMap::intakeintakeMotor4->Set(0.022);
+		RobotMap::intakeintakeMotor3->Set(-0.026f);
+		RobotMap::intakeintakeMotor4->Set(0.022f);
 		break;
 	case ArmLevelPosition_Scale:
 		RobotMap::intakeintakeMotor3->SelectProfileSlot(0);
 		RobotMap::intakeintakeMotor4->SelectProfileSlot(0);
 
-		RobotMap::intakeintakeMotor3->Set(0.150);
-		RobotMap::intakeintakeMotor4->Set(-0.150);
+		RobotMap::intakeintakeMotor3->Set(0.150f);
+		RobotMap::intakeintakeMotor4->Set(-0.150f);
 		break;
 	case ArmLevelPosition_LowGoal:
 		RobotMap::intakeintakeMotor3->SelectProfileSlot(0);
 		RobotMap::intakeintakeMotor4->SelectProfileSlot(0);
 
-		RobotMap::intakeintakeMotor3->Set(0.151);
-		RobotMap::intakeintakeMotor4->Set(-0.153);
+		RobotMap::intakeintakeMotor3->Set(0.151f);
+		RobotMap::intakeintakeMotor4->Set(-0.153f);
 		break;
 	case ArmLevelPosition_Moat:
 		RobotMap::intakeintakeMotor3->SelectProfileSlot(0);
 		RobotMap::intakeintakeMotor4->SelectProfileSlot(0);
 
-		RobotMap::intakeintakeMotor3->Set(0.08);
-		RobotMap::intakeintakeMotor4->Set(-0.08);
+		RobotMap::intakeintakeMotor3->Set(0.08f);
+		RobotMap::intakeintakeMotor4->Set(-0.08f);
 		break;
 	case ArmLevelPosition_Cheval:
 		RobotMap::intakeintakeMotor3->SelectProfileSlot(0);
