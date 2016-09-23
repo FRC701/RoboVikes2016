@@ -4,6 +4,8 @@
 #include "SetShooter.h"
 #include "IntakeArmLevel.h"
 #include "IntakeCounter.h"
+#include "IntakeArmOn.h"
+#include "Delay.h"
 
 AutoLowBar::AutoLowBar()
 {
@@ -17,11 +19,30 @@ AutoLowBar::AutoLowBar()
 	// e.g. AddParallel(new Command1());
 	//      AddSequential(new Command2());
 	// Command1 and Command2 will run in parallel.
+
+	//..........if the arm positions work..........
+
+	/*
+
 	AddSequential(new SetShifter('l'));
 	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
 	AddSequential(new IntakeCounter(10));
 	AddSequential(new SetShooter(DoubleSolenoid::kReverse));
 	AddSequential(new AutoDrive(AutoDrive::Distance_LowBar));
+
+	*/
+
+	//..........if they don't..........
+
+	//AddParallel(new SetShifter('l'));
+	//AddSequential(new IntakeArmOn(0.25));
+	//AddSequential(new Delay(0.25));
+	//AddParallel(new IntakeArmOn(0.0));
+	//AddSequential(new SetShooter(DoubleSolenoid::kReverse));
+	AddSequential(new AutoDrive(AutoDrive::Distance_LowBar));
+
+
+
 	// A command group will require all of the subsystems that each member
 	// would require.
 	// e.g. if Command1 requires chassis, and Command2 requires arm,

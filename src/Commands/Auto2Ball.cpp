@@ -21,6 +21,7 @@ Auto2Ball::Auto2Ball()
 	//      AddSequential(new Command2());
 	// Command1 and Command2 will run in parallel.
 	//Set Solenoids and Arm
+	//AddSequential(new KickstandToggle());
 	AddSequential(new SetShifter('l'));
 	AddSequential(new IntakeArmLevel(IntakeArmLevel::ArmLevelPosition_Intake));
 	AddSequential(new SetShooter(DoubleSolenoid::kReverse));
