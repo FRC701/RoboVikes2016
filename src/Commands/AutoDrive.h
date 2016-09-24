@@ -16,6 +16,7 @@ public:
 		Distance_Cheval_Cross
 	};
 	AutoDrive(Distance distance);
+	int getPosition(Distance distance);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -198,7 +198,7 @@ void Robot::DisabledPeriodic() {
 }
 
 void Robot::AutonomousInit() {
-	autonomousCommand.reset((Command *) new AutoLowBar());				//chooser->GetSelected());
+	autonomousCommand.reset((Command *) chooser->GetSelected());
 	if (autonomousCommand.get() != nullptr)
 		autonomousCommand->Start();
 

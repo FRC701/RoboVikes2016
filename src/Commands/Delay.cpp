@@ -24,7 +24,7 @@ void Delay::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool Delay::IsFinished()
 {
-	mTimer.HasPeriodPassed(mDelayTime);
+	return mTimer.HasPeriodPassed(mDelayTime);
 }
 
 // Called once after isFinished returns true

@@ -1,8 +1,8 @@
 #include "AutoDrive.h"
 
 
-static
-int getPosition(AutoDrive::Distance distance) {
+
+int AutoDrive::getPosition(AutoDrive::Distance distance) {
 	int position = 0;
 	switch (distance) {
 	case AutoDrive::Distance_Reach:

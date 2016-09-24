@@ -40,8 +40,7 @@ Intake::Intake() : Subsystem("Intake") {
     intakeMotor4 = RobotMap::intakeintakeMotor4;
 
     intakeMotor3->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
-    intakeMotor3->SetPosition(
-    		(intakeMotor3->GetPulseWidthPosition() - kIntakeMotor3AbsoluteOffset) / 4096.0);
+    intakeMotor3->SetPosition((intakeMotor3->GetPulseWidthPosition() - kIntakeMotor3AbsoluteOffset) / 4096.0);
     intakeMotor3->SetSensorDirection(true);
     //intakeMotor3->ConfigSoftPositionLimits(kIntakeMotor3ForwardPositionLimit, kIntakeMotor3ReversePositionLimit);
     intakeMotor3->ConfigNominalOutputVoltage(+0.0f, -0.0f);
@@ -57,6 +56,9 @@ Intake::Intake() : Subsystem("Intake") {
 
     intakeMotor3->SetControlMode(CANTalon::kPercentVbus);
     intakeMotor3->Set(0.0);
+
+
+    //Intake Motor 4......
 
     intakeMotor4->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
     intakeMotor4->SetPosition(
